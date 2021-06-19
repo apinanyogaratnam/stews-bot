@@ -46,8 +46,9 @@ async def on_message(message):
   if message.content.startswith('$inspire'):
     quote = get_quote()
     await message.channel.send(quote)
-  if any(word in msg for word in sad_words):
-    await message.channel.send(random.choice(encouraging_words))
+  if any((word in msg) for word in sad_words):
+    if "willsad" not in msg and "sadge" not in msg.lower():
+      await message.channel.send(random.choice(encouraging_words))
   
   if msg.startswith('$help'):
     await message.channel.send(
