@@ -50,7 +50,13 @@ async def on_message(message):
     await message.channel.send(random.choice(encouraging_words))
   
   if msg.startswith('$help'):
-    await message.channel.send()
+    await message.channel.send(
+      "Here are the different commands available:\n" + 
+      "$hello (says hello)\n" + 
+      "$inspire (says an inspirational message)\n" + 
+      "Here are the different keywords:\n" + 
+      "kms, down bad, depressed, sad (gives a positive message)"
+    )
 
 keep_alive()
 client.run(my_secret)
