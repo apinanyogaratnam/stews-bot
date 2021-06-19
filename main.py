@@ -32,6 +32,8 @@ def get_quote():
 async def on_ready():
   print('We have logged in as {0.user}'
   .format(client))
+  await client.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name="$help"))
+
 
 @client.event
 async def on_message(message):
