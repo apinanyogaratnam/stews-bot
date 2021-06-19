@@ -3,6 +3,7 @@ import os
 import requests
 import json
 import random
+from keep_alive import keep_alive
 
 my_secret = os.environ['TOKEN']
 
@@ -47,5 +48,9 @@ async def on_message(message):
     await message.channel.send(quote)
   if any(word in msg for word in sad_words):
     await message.channel.send(random.choice(encouraging_words))
+  
+  if msg.startswith('$help'):
+    await message.channel.send()
 
+keep_alive()
 client.run(my_secret)
