@@ -4,12 +4,16 @@ import requests
 import json
 import random
 from keep_alive import keep_alive
+from inspire_command import contains_sad_words, contains_emoji
 
 sad_words = ["kms", "down bad", "depressed", "sad"]
 encouraging_words = [
   "aw man hope you feel better >.<",
   "It's ok everything will get better",
-  "Whatever you're going through, you got this!"
+  "Whatever you're going through, you got this!",
+  "Keep fighting!",
+  "Stay strong",
+  "Never give up"
 ]
 
 client = discord.Client()
@@ -56,8 +60,7 @@ async def on_message(message):
   if message.content.startswith('$inspire'):
     quote = get_quote()
     await message.channel.send(quote)
-  if any((word in msg) for word in sad_words):
-    if "willsad" not in msg and "sadge" not in msg.lower():
+  if not contains_sad_words() or not contains_emoji():
       await message.channel.send(random.choice(encouraging_words))
   
   if msg.startswith('$help'):
