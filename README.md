@@ -24,4 +24,5 @@ Displays a list of commands the bot is capable of reading
 # Other
 
 # TO-DO 
-Use db and store information
+- Use db and store information
+- react to message of sad words (sadge, itsokitsok, pensive) <- randomly
