@@ -95,7 +95,7 @@ async def on_message(message):
       "Here are the different commands available:\n" + 
       "$hello (says hello)\n" + 
       "$inspire (says an inspirational message)\n" + 
-      "$meme (gives a meme from reddit subreddit memes)\n"
+      "$meme (gives a meme from reddit subreddit memes, discresion is advised)\n" +
       "Here are the different keywords:\n" + 
       "kms, down bad, depressed, sad (gives a positive message)"
     )
