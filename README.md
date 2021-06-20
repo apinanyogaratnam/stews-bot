@@ -1,7 +1,7 @@
 # Stews Bot
 
 ## Description
-
+Stews Bot is a Discord Bot that responds to commands, certain messages with trigger words, and uses various API's to respond with.
 
 ## Commands
 
@@ -23,3 +23,5 @@ Displays a list of commands the bot is capable of reading
 
 # Other
 
+# TO-DO 
+Use db and store information
