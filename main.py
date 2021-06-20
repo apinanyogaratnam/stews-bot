@@ -1,11 +1,9 @@
 import discord
-import os
-import requests
-import json
-import random
+import praw
+import os, random, threading, time
+import requests, json
 from keep_alive import keep_alive
 from inspire_command import contains_sad_words, contains_emoji
-import praw
 
 encouraging_words = [
   "aw man hope you feel better >.<",
@@ -21,6 +19,19 @@ reddit = praw.Reddit(client_id = os.environ['REDDIT_CLIENT_ID'],
                           username = os.environ['REDDIT_USERNAME'],
                           password = os.environ['REDDIT_PASSWORD'],
                           user_agent = "stews_bot")
+
+all_subreddits = []
+
+def fetch_reddit_posts(delay):
+      subreddit = reddit.subreddit("memes")
+      top = subreddit.top(limit = 50)
+
+      for post in top:
+          all_subreddits.append(post) 
+      
+      time.sleep(delay)
+
+threading.Thread(target=fetch_reddit_posts, args=(1*60*30)).start()
 
 client = discord.Client()
 
@@ -79,13 +90,6 @@ async def on_message(message):
     )
 
   if msg.startswith('$meme'):
-      all_subreddits = []
-      subreddit = reddit.subreddit("memes")
-      top = subreddit.top(limit = 50)
-
-      for post in top:
-          all_subreddits.append(post)
-
       random_sub = random.choice(all_subreddits)
 
       name = random_sub.title
