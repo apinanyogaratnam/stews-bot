@@ -5,8 +5,6 @@ import json
 import random
 from keep_alive import keep_alive
 
-my_secret = os.environ['TOKEN']
-
 sad_words = ["kms", "down bad", "depressed", "sad"]
 encouraging_words = [
   "aw man hope you feel better >.<",
@@ -72,4 +70,6 @@ async def on_message(message):
     )
 
 keep_alive()
+
+my_secret = os.environ['TOKEN']
 client.run(my_secret)
