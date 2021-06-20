@@ -36,6 +36,8 @@ def fetch_subreddit_posts(subreddit_name, limit):
 def fetch_reddit_posts(delay):
     fetch_subreddit_posts("memes", NUMBER_OF_POSTS)
     fetch_subreddit_posts("Memes_Of_The_Dank", NUMBER_OF_POSTS)
+    fetch_subreddit_posts("memes", NUMBER_OF_POSTS)
+    fetch_subreddit_posts("dankmemes", NUMBER_OF_POSTS)
 
     time.sleep(delay)
 
