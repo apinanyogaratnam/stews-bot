@@ -22,13 +22,6 @@ reddit = praw.Reddit(client_id = os.environ['REDDIT_CLIENT_ID'],
                           password = os.environ['REDDIT_PASSWORD'],
                           user_agent = "stews_bot")
 
-all_subreddits = []
-subreddit = reddit.subreddit("memes")
-top = subreddit.top(limit = 50)
-
-for post in top:
-  all_subreddits.append(post)
-
 client = discord.Client()
 
 def get_quote():
@@ -86,6 +79,13 @@ async def on_message(message):
     )
 
   if msg.startswith('$meme'):
+      all_subreddits = []
+      subreddit = reddit.subreddit("memes")
+      top = subreddit.top(limit = 50)
+
+      for post in top:
+          all_subreddits.append(post)
+
       random_sub = random.choice(all_subreddits)
 
       name = random_sub.title
