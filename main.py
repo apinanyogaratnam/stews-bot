@@ -20,18 +20,23 @@ reddit = praw.Reddit(client_id = os.environ['REDDIT_CLIENT_ID'],
                           password = os.environ['REDDIT_PASSWORD'],
                           user_agent = "stews_bot")
 
+NUMBER_OF_POSTS = 50
+
+# fetching and appending reddit posts
 all_subreddits = []
 
-def fetch_reddit_posts(delay):
-    def fetch_subreddit_posts(subreddit_name, limit):
-        subreddit = reddit.subreddit(subreddit_name)
-        top = subreddit.top(limit = limit)
-      
-        for post in top:
-            all_subreddits.append(post)
+def fetch_subreddit_posts(subreddit_name, limit):
+    subreddit = reddit.subreddit(subreddit_name)
+    top = subreddit.top(limit = limit)
+  
+    for post in top:
+        all_subreddits.append(post)
 
-    fetch_subreddit_posts("memes", 50)
-    fetch_subreddit_posts("Memes_Of_The_Dank", 50)
+
+def fetch_reddit_posts(delay):
+    fetch_subreddit_posts("memes", NUMBER_OF_POSTS)
+    fetch_subreddit_posts("Memes_Of_The_Dank", NUMBER_OF_POSTS)
+
     time.sleep(delay)
 
 thirty_minutes = 60*30
