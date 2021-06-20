@@ -32,6 +32,7 @@ def fetch_reddit_posts(delay):
       time.sleep(delay)
 
 threading.Thread(target=fetch_reddit_posts, args=(1*60*30)).start()
+fetch_reddit_posts(0)
 
 client = discord.Client()
 
