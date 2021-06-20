@@ -23,15 +23,19 @@ reddit = praw.Reddit(client_id = os.environ['REDDIT_CLIENT_ID'],
 all_subreddits = []
 
 def fetch_reddit_posts(delay):
-      subreddit = reddit.subreddit("memes")
-      top = subreddit.top(limit = 50)
-
-      for post in top:
-          all_subreddits.append(post) 
+    def fetch_subreddit_posts(subreddit_name, limit):
+        subreddit = reddit.subreddit(subreddit_name)
+        top = subreddit.top(limit = limit)
       
-      time.sleep(delay)
+        for post in top:
+            all_subreddits.append(post)
 
-threading.Thread(target=fetch_reddit_posts, args=(1*60*30)).start()
+    fetch_subreddit_posts("memes", 50)
+    fetch_subreddit_posts("Memes_Of_The_Dank", 50)
+    time.sleep(delay)
+
+thirty_minutes = 60*30
+threading.Thread(target=fetch_reddit_posts, args=(thirty_minutes,)).start()
 fetch_reddit_posts(0)
 
 client = discord.Client()
@@ -86,6 +90,7 @@ async def on_message(message):
       "Here are the different commands available:\n" + 
       "$hello (says hello)\n" + 
       "$inspire (says an inspirational message)\n" + 
+      "$meme (gives a meme from reddit subreddit memes)\n"
       "Here are the different keywords:\n" + 
       "kms, down bad, depressed, sad (gives a positive message)"
     )
