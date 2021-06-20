@@ -7,7 +7,6 @@ from keep_alive import keep_alive
 from inspire_command import contains_sad_words, contains_emoji
 import praw
 
-sad_words = ["kms", "down bad", "depressed", "sad"]
 encouraging_words = [
   "aw man hope you feel better >.<",
   "It's ok everything will get better",
@@ -16,6 +15,19 @@ encouraging_words = [
   "Stay strong",
   "Never give up"
 ]
+
+reddit = praw.Reddit(client_id = os.environ['REDDIT_CLIENT_ID'],
+                          client_secret = os.environ['REDDIT_CLIENT_SECRET'],
+                          username = os.environ['REDDIT_USERNAME'],
+                          password = os.environ['REDDIT_PASSWORD'],
+                          user_agent = "stews_bot")
+
+all_subreddits = []
+subreddit = reddit.subreddit("memes")
+top = subreddit.top(limit = 50)
+
+for post in top:
+  all_subreddits.append(post)
 
 client = discord.Client()
 
@@ -74,26 +86,13 @@ async def on_message(message):
     )
 
   if msg.startswith('$meme'):
-      reddit = praw.Reddit(client_id = os.environ['REDDIT_CLIENT_ID'],
-                          client_secret = os.environ['REDDIT_CLIENT_SECRET'],
-                          username = os.environ['REDDIT_USERNAME'],
-                          password = os.environ['REDDIT_PASSWORD'],
-                          user_agent = "stews_bot")
-
-      all_subreddits = []
-      reddit = reddit.subreddit("memes")
-      top = subreddit.top(limit = 50)
-
-      for post in top:
-        all_subreddits.append(post)
-
       random_sub = random.choice(all_subreddits)
 
       name = random_sub.title
       url = random_sub.url
       embed = discord.Embed(title = name)
       
-      embed.add_image(url = url)
+      embed.set_image(url = url)
       await message.channel.send(embed = embed)
 
 keep_alive()
