@@ -114,7 +114,6 @@ async def on_message(message):
       await message.channel.send("ilya shirt coming soon)")
   
   custom_emojis = re.findall(r'<:\w*:\d*>', msg)
-  print(custom_emojis)
   for emoji in custom_emojis:
       await message.add_reaction(emoji='/'+emoji)
 
