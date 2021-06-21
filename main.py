@@ -123,8 +123,18 @@ async def on_message(message):
           time.sleep(2)
           await message.channel.send(f'oh hey {message.author.display_name}!')
 
-  if message.content.contains("\U0001F614"):
+  if "\U0001F614" in message.content:
       await message.add_reaction(emoji="\U0001F614")
+
+  # if message.content.startswith('!clear -ls -now sadfasdfasdfasdflsak'):
+  #     # await message.channel.send('Clearing messages...')
+  #     # async for msg in message.author.logs_from(message.channel):
+  #     #       await message.delete()
+  #     messages = await message.channel.history(limit=200).flatten()
+  #     for text_msg in messages:
+  #         if text_msg.author.name == message.author.name:
+  #             await text_msg.delete()
+  #     pass
 
 keep_alive()
 
