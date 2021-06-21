@@ -115,7 +115,10 @@ async def on_message(message):
   
   custom_emojis = re.findall(r'<:\w*:\d*>', msg)
   for emoji in custom_emojis:
-      await message.add_reaction(emoji='/'+emoji)
+      try:
+          await message.add_reaction(emoji='/'+emoji)
+      except:
+        print("emoji from different server")
 
   for mention in message.mentions:
       if mention.name == "Stews Bot":
