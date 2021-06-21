@@ -123,9 +123,6 @@ async def on_message(message):
   print(custom_emojis)
   for emoji in custom_emojis:
       await message.add_reaction(emoji='/'+emoji)
-  # custom_emojis = [int(e.split(':')[1].replace('>', '')) for e in custom_emojis]
-  # custom_emojis = [discord.utils.get(client.get_all_emojis(), id=e) for e in custom_emojis]
-  # print(custom_emojis)
 
 keep_alive()
 
