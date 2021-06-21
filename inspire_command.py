@@ -1,4 +1,5 @@
 sad_words = ["kms", "down bad", "depressed", "sad"]
+sad_words = [""]
 encouraging_words = [
   "aw man hope you feel better >.<",
   "It's ok everything will get better",
