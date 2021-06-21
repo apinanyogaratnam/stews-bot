@@ -4,6 +4,7 @@ import os, random, threading, time
 import requests, json
 from keep_alive import keep_alive
 from inspire_command import contains_sad_words, contains_emoji
+from emoji_response import is_emoji
 import re
 
 encouraging_words = [
@@ -120,6 +121,8 @@ async def on_message(message):
   print(custom_emojis)
   for emoji in custom_emojis:
       await message.add_reaction(emoji='/'+emoji)
+
+  print(is_emoji(msg))
 
 keep_alive()
 

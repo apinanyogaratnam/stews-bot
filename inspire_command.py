@@ -8,7 +8,7 @@ encouraging_words = [
 
 
 def contains_sad_words(message):
-  if any((word in message) for word in sad_words):
+  if any((word in message.split()) for word in sad_words):
       return True
 
 
