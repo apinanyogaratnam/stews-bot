@@ -1,11 +1,4 @@
-import discord
-import praw
-import os, random, threading, time
-import requests, json
-from keep_alive import keep_alive
-from inspire_command import contains_sad_words, contains_emoji
-from emoji_response import is_emoji
-import re
+from imports import (discord, praw, os, random, threading, time,requests, json, keep_alive, contains_sad_words, contains_emoji, re)
 
 encouraging_words = [
   "aw man hope you feel better >.<",
@@ -121,8 +114,6 @@ async def on_message(message):
   print(custom_emojis)
   for emoji in custom_emojis:
       await message.add_reaction(emoji='/'+emoji)
-
-  print(is_emoji(msg))
 
 keep_alive()
 
