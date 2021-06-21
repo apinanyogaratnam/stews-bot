@@ -1,8 +1,19 @@
-from emoji import UNICODE_EMOJI
+emoji_list_text = [":pensive:"]
+emoji_list_unicode = ["\U0001F614"]
 
-def is_emoji(content):
-    content = content[1:-2]
-    for emoji in UNICODE_EMOJI:
-        if content == emoji:
+def is_unicode_emoji(message):
+    message = message.split()
+    for word in message:
+        if word in emoji_list_text:
             return True
     return False
+
+def get_unicode_emoji(message):
+    list_of_unicodes = []
+    message = message.split()
+    for word in message:
+        if word in emoji_list_text:
+            unicode = emoji_list_unicode[emoji_list_text.index(word)]
+            list_of_unicodes.append(unicode)
+    
+    return list_of_unicodes

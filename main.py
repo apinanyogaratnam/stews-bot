@@ -121,6 +121,9 @@ async def on_message(message):
           time.sleep(2)
           await message.channel.send(f'oh hey {message.author.display_name}!')
 
+  if message.content.contains("\U0001F614"):
+      await message.add_reaction(emoji="\U0001F614")
+
 keep_alive()
 
 my_secret = os.environ['TOKEN']
