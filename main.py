@@ -147,6 +147,7 @@ async def on_message(message):
   #         if text_msg.author.name == "Stews Bot":
   #             await text_msg.delete()
 
+  # if message.content.startswith("$spam"):
 keep_alive()
 
 my_secret = os.environ['TOKEN']
