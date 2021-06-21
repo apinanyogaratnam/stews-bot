@@ -84,7 +84,7 @@ async def on_message(message):
   msg = message.content
 
   if message.content.startswith('$hello'):
-    await message.channel.send("Hello!")
+    await message.channel.send(f'Hello! {message.author.display_name}')
 
   if message.content.startswith('$inspire'):
     quote = get_quote()
@@ -111,6 +111,9 @@ async def on_message(message):
       
       embed.set_image(url = url)
       await message.channel.send(embed = embed)
+
+  if msg.startswith('pls shirt'):
+      await message.channel.send("ilya shirt coming soon)")
 
 keep_alive()
 
