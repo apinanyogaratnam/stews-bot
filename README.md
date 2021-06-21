@@ -22,6 +22,7 @@ Displays a list of commands the bot is capable of reading
 
 
 # Other
+- Reacts to :sadge: emoji with :sadge:
 
 # TO-DO 
 - Use db and store information

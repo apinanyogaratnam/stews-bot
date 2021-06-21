@@ -4,6 +4,7 @@ import os, random, threading, time
 import requests, json
 from keep_alive import keep_alive
 from inspire_command import contains_sad_words, contains_emoji
+import re
 
 encouraging_words = [
   "aw man hope you feel better >.<",
@@ -114,6 +115,17 @@ async def on_message(message):
 
   if msg.startswith('pls shirt'):
       await message.channel.send("ilya shirt coming soon)")
+
+  if ":sadge:" in msg.lower():
+      await message.add_reaction(emoji='/<:sadge:812730863489646662>')
+  
+  custom_emojis = re.findall(r'<:\w*:\d*>', msg)
+  print(custom_emojis)
+  for emoji in custom_emojis:
+      await message.add_reaction(emoji='/'+emoji)
+  # custom_emojis = [int(e.split(':')[1].replace('>', '')) for e in custom_emojis]
+  # custom_emojis = [discord.utils.get(client.get_all_emojis(), id=e) for e in custom_emojis]
+  # print(custom_emojis)
 
 keep_alive()
 
