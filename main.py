@@ -136,6 +136,8 @@ async def on_message(message):
   #             await text_msg.delete()
   #     pass
 
+  # make a delete bot history everywhere including removing reactions
+
 keep_alive()
 
 my_secret = os.environ['TOKEN']
