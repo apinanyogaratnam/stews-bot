@@ -130,7 +130,7 @@ async def on_message(message):
   #     # await message.channel.send('Clearing messages...')
   #     # async for msg in message.author.logs_from(message.channel):
   #     #       await message.delete()
-  #     messages = await message.channel.history(limit=200).flatten()
+  #     messages = await message.channel.history().flatten()
   #     for text_msg in messages:
   #         if text_msg.author.name == message.author.name:
   #             await text_msg.delete()
