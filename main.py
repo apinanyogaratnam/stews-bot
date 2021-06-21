@@ -79,7 +79,7 @@ async def on_message(message):
   msg = message.content
 
   if message.content.startswith('$hello'):
-    await message.channel.send(f'Hello! {message.author.display_name}')
+    await message.channel.send(f'Hello {message.author.display_name}!')
 
   if message.content.startswith('$inspire'):
     quote = get_quote()
@@ -114,6 +114,12 @@ async def on_message(message):
   print(custom_emojis)
   for emoji in custom_emojis:
       await message.add_reaction(emoji='/'+emoji)
+
+  for mention in message.mentions:
+      if mention.name == "Stews Bot":
+          await message.channel.send("who called me?")
+          time.sleep(2)
+          await message.channel.send(f'oh hey {message.author.display_name}!')
 
 keep_alive()
 

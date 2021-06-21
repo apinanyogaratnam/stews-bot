@@ -22,9 +22,10 @@ Displays a list of commands the bot is capable of reading
 
 
 # Other
-- Reacts to custom emojis with the emojis used to the message
+- Reacts to custom emojis with the emojis used to the message (works on main server only)
 - when a sad word is detected, a positive message will appear
 - pls shirt command says ilya shirt coming soon)
+- mentioning @Stews Bot will give a message
 
 # TO-DO 
 - Use db and store information
