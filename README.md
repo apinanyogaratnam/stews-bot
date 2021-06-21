@@ -22,7 +22,9 @@ Displays a list of commands the bot is capable of reading
 
 
 # Other
-- Reacts to :sadge: emoji with :sadge:
+- Reacts to custom emojis with the emojis used to the message
+- when a sad word is detected, a positive message will appear
+- pls shirt command says ilya shirt coming soon)
 
 # TO-DO 
 - Use db and store information

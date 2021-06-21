@@ -115,9 +115,6 @@ async def on_message(message):
 
   if msg.startswith('pls shirt'):
       await message.channel.send("ilya shirt coming soon)")
-
-  if ":sadge:" in msg.lower():
-      await message.add_reaction(emoji='/<:sadge:812730863489646662>')
   
   custom_emojis = re.findall(r'<:\w*:\d*>', msg)
   print(custom_emojis)
