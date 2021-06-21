@@ -1,6 +1,7 @@
-emoji_list_text = [":pensive:"]
-emoji_list_unicode = ["\U0001F614"]
+emoji_list_text = [":pensive:", ":smile:"]
+emoji_list_unicode = ["\U0001F614", "\U0001F601"]
 
+# test on idle before deploying
 def is_unicode_emoji(message):
     message = message.split()
     for word in message:

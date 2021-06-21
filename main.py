@@ -9,6 +9,7 @@ encouraging_words = [
   "Never give up"
 ]
 
+# make this a function (reddit = define_reddit(cliend_id, client_secret...))
 reddit = praw.Reddit(client_id = os.environ['REDDIT_CLIENT_ID'],
                           client_secret = os.environ['REDDIT_CLIENT_SECRET'],
                           username = os.environ['REDDIT_USERNAME'],
@@ -20,6 +21,7 @@ NUMBER_OF_POSTS = 50
 # fetching and appending reddit posts
 all_subreddits = []
 
+# put this in memes command file
 def fetch_subreddit_posts(subreddit_name, limit):
     subreddit = reddit.subreddit(subreddit_name)
     top = subreddit.top(limit = limit)
@@ -27,7 +29,7 @@ def fetch_subreddit_posts(subreddit_name, limit):
     for post in top:
         all_subreddits.append(post)
 
-
+# put this in memes command file
 def fetch_reddit_posts(delay):
     fetch_subreddit_posts("memes", NUMBER_OF_POSTS)
     fetch_subreddit_posts("Memes_Of_The_Dank", NUMBER_OF_POSTS)
@@ -42,6 +44,7 @@ fetch_reddit_posts(0)
 
 client = discord.Client()
 
+# put this in inspire command file
 def get_quote():
   response = requests.get("https://zenquotes.io/api/random")
   json_data = json.loads(response.text)
