@@ -118,7 +118,7 @@ async def on_message(message):
       try:
           await message.add_reaction(emoji='/'+emoji)
       except:
-        print("emoji from different server")
+        print("- emoji from different server")
 
   for mention in message.mentions:
       if mention.name == "Stews Bot":
@@ -140,6 +140,12 @@ async def on_message(message):
   #     pass
 
   # make a delete bot history everywhere including removing reactions
+  # if message.content.startswith("!clear stews bot"):
+  #     await message.channel.send('clearing messages...')
+  #     messages = await message.channel.history().flatten()
+  #     for text_msg in messages:
+  #         if text_msg.author.name == "Stews Bot":
+  #             await text_msg.delete()
 
 keep_alive()
 
