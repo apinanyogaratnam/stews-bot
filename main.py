@@ -66,13 +66,12 @@ async def on_ready():
 
 
 @client.event
-async def on_member_join(member):
+async def on_member_join(member, message):
     await message.channel.send(f'Hi {member.name}!, Welcome to our community!')
     # await member.create_dm()
     # await member.dm_channel.send(
     #     f'Hi {member.name}, welcome to my Discord server!'
     # )
-
 
 @client.event
 async def on_message(message):
