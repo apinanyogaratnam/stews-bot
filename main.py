@@ -1,8 +1,8 @@
 from imports import (discord, os, random, threading, 
-                     time,requests, json, keep_alive, 
+                     time, requests, json, keep_alive,
                      contains_sad_words, contains_emoji, 
                      re, fetch_reddit_posts, NUMBER_OF_POSTS,
-                     encouraging_words, THIRTY_MINUTES, 
+                     ENCOURAGING_WORDS, THIRTY_MINUTES, 
                      HELP_MESSAGE)
 
 

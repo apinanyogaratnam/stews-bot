@@ -1,4 +1,5 @@
-from imports import praw, os, time, MEME_SUBREDDITS
+from imports import praw, os, time
+from constants import MEME_SUBREDDITS
 
 
 def createReddit():
