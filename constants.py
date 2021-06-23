@@ -1,5 +1,14 @@
 NUMBER_OF_POSTS = 50
+THIRTY_MINUTES = 1800
 
+HELP_MESSAGE = """
+Here are the different commands available: 
+      $hello (says hello) 
+      $inspire (says an inspirational message)
+      $meme (gives a meme from reddit subreddit memes, discresion is advised)
+Here are the different keywords:
+      kms, down bad, depressed, sad (gives a positive message)
+"""
 ENCOURAGING_WORDS = [
   "aw man hope you feel better >.<",
   "It's ok everything will get better",
@@ -9,4 +18,10 @@ ENCOURAGING_WORDS = [
   "Never give up"
 ]
 
-THIRTY_MINUTES = 1800
+MEME_SUBREDDITS = [
+  "memes",
+  "Memes_Of_The_Dank",
+  "dankmemes",
+  "MemesIRL",
+  "MemeEconomy"
+]

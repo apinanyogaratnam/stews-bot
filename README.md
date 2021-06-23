@@ -20,7 +20,6 @@ Memes receieved from reddit API (this is in NO way, shape or form of an applicat
 ### $help
 Displays a list of commands the bot is capable of reading
 
-
 # Other
 - Reacts to custom emojis with the emojis used to the message (works on main server only)
 - when a sad word is detected, a positive message will appear
