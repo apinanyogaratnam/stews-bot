@@ -1,46 +1,17 @@
-from imports import (discord, praw, os, random, threading, time,requests, json, keep_alive, contains_sad_words, contains_emoji, re)
-
-encouraging_words = [
-  "aw man hope you feel better >.<",
-  "It's ok everything will get better",
-  "Whatever you're going through, you got this!",
-  "Keep fighting!",
-  "Stay strong",
-  "Never give up"
-]
+from imports import (discord, os, random, threading, 
+                     time,requests, json, keep_alive, 
+                     contains_sad_words, contains_emoji, 
+                     re, fetch_reddit_posts, NUMBER_OF_POSTS,
+                     encouraging_words, THIRTY_MINUTES)
 
 # make this a function (reddit = define_reddit(cliend_id, client_secret...))
-reddit = praw.Reddit(client_id = os.environ['REDDIT_CLIENT_ID'],
-                          client_secret = os.environ['REDDIT_CLIENT_SECRET'],
-                          username = os.environ['REDDIT_USERNAME'],
-                          password = os.environ['REDDIT_PASSWORD'],
-                          user_agent = "stews_bot")
 
-NUMBER_OF_POSTS = 50
 
 # fetching and appending reddit posts
 all_subreddits = []
 
-# put this in memes command file
-def fetch_subreddit_posts(subreddit_name, limit):
-    subreddit = reddit.subreddit(subreddit_name)
-    top = subreddit.top(limit = limit)
-  
-    for post in top:
-        all_subreddits.append(post)
-
-# put this in memes command file
-def fetch_reddit_posts(delay):
-    fetch_subreddit_posts("memes", NUMBER_OF_POSTS)
-    fetch_subreddit_posts("Memes_Of_The_Dank", NUMBER_OF_POSTS)
-    fetch_subreddit_posts("memes", NUMBER_OF_POSTS)
-    fetch_subreddit_posts("dankmemes", NUMBER_OF_POSTS)
-
-    time.sleep(delay)
-
-thirty_minutes = 60*30
-threading.Thread(target=fetch_reddit_posts, args=(thirty_minutes,)).start()
-fetch_reddit_posts(0)
+threading.Thread(target=fetch_reddit_posts, args=(THIRTY_MINUTES,NUMBER_OF_POSTS, all_subreddits)).start()
+fetch_reddit_posts(0, NUMBER_OF_POSTS, all_subreddits)
 
 client = discord.Client()
 
