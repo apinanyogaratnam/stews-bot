@@ -26,6 +26,7 @@ Displays a list of commands the bot is capable of reading
 - when a sad word is detected, a positive message will appear
 - pls shirt command says ilya shirt coming soon)
 - mentioning @Stews Bot will give a message
+- when a user joins the server, Stews will give a welcoming message
 
 # TO-DO 
 - Use db and store information
