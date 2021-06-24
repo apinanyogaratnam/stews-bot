@@ -3,7 +3,7 @@ from imports import (discord, os, random, threading,
                      contains_sad_words, contains_emoji, 
                      re, fetch_reddit_posts, NUMBER_OF_POSTS,
                      ENCOURAGING_WORDS, THIRTY_MINUTES, 
-                     HELP_MESSAGE)
+                     HELP_MESSAGE, commit_and_push)
 
 
 # fetching and appending reddit posts
@@ -11,6 +11,7 @@ all_subreddits = []
 
 threading.Thread(target=fetch_reddit_posts, args=(THIRTY_MINUTES,NUMBER_OF_POSTS, all_subreddits)).start()
 # fetch_reddit_posts(0, NUMBER_OF_POSTS, all_subreddits)
+threading.Thread(target=commit_and_push, args=()).start()
 
 client = discord.Client()
 
