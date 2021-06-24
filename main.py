@@ -10,7 +10,7 @@ from imports import (discord, os, random, threading,
 all_subreddits = []
 
 threading.Thread(target=fetch_reddit_posts, args=(THIRTY_MINUTES,NUMBER_OF_POSTS, all_subreddits)).start()
-fetch_reddit_posts(0, NUMBER_OF_POSTS, all_subreddits)
+# fetch_reddit_posts(0, NUMBER_OF_POSTS, all_subreddits)
 
 client = discord.Client()
 
@@ -57,7 +57,7 @@ async def on_message(message):
         quote = get_quote()
         await message.channel.send(quote)
     if contains_sad_words(msg) and not contains_emoji(msg):
-        await message.channel.send(random.choice(encouraging_words))
+        await message.channel.send(random.choice(ENCOURAGING_WORDS))
     
     if msg.startswith('$help'):
         await message.channel.send(HELP_MESSAGE)
