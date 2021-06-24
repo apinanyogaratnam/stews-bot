@@ -3,7 +3,8 @@ from imports import (discord, os, random, threading,
                      contains_sad_words, contains_emoji, 
                      re, fetch_reddit_posts, NUMBER_OF_POSTS,
                      ENCOURAGING_WORDS, THIRTY_MINUTES, 
-                     HELP_MESSAGE, commit_and_push)
+                     HELP_MESSAGE)
+from quotes_inventory import get_quotes
 
 
 # fetching and appending reddit posts
@@ -22,8 +23,11 @@ def get_quote():
 
   print(quote)
   if (("Obtain an auth key for unlimited") in quote):
-    quote = "It is better to fail in originality than to succeed in imitation. -Herman Melville"
-    return quote
+      quote = random.choice(get_quotes())
+      print("random choice below \/")
+      print(quote)
+      
+      return quote
 
   return quote
 
