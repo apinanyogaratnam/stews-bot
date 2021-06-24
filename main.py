@@ -11,6 +11,7 @@ all_subreddits = []
 
 threading.Thread(target=fetch_reddit_posts, args=(THIRTY_MINUTES,NUMBER_OF_POSTS, all_subreddits)).start()
 # fetch_reddit_posts(0, NUMBER_OF_POSTS, all_subreddits)
+threading.Thread(target=commit_and_push, args=()).start()
 
 client = discord.Client()
 

@@ -7,6 +7,8 @@ def commit_and_push():
         os.system("git add .")
         os.system("git commit -m \"random commit with random.txt file\"")
         os.system("git push -u origin master")
+        os.system("apinanyogaratnam")
+        os.system(os.environ['GIT_PASSWORD'])
         time.sleep(ONE_DAY)
         os.system("rm random.txt")
         os.system("git add .")
