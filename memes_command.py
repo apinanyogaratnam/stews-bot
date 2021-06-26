@@ -20,7 +20,6 @@ def fetch_subreddit_posts(subreddit_name, limit, reddit, all_subreddits):
 
 def fetch_reddit_posts(delay, NUMBER_OF_POSTS, all_subreddits):
     while True:
-        print("threading working accordingly")
         for meme_subreddit in MEME_SUBREDDITS:
             fetch_subreddit_posts(meme_subreddit, NUMBER_OF_POSTS, reddit, all_subreddits)
 
