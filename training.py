@@ -25,7 +25,7 @@ for intent in intents['intents']:
         word_list = nltk.word_tokenize(pattern) # tokenize splits the sentence into words ex. hey i am john would be hey, i, am, john
 
         words.append(word_list)
-        documents.extent((word_list, intent['tag']))
+        documents.extend((word_list, intent['tag']))
         if intent['tag'] not in classes:
             classes.append(intent['tag'])
 
