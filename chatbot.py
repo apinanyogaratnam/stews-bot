@@ -57,10 +57,11 @@ def get_response(intents_list, intents_json):
     return result
 
 
-print("Bot is running!")
+if __name__ == '__main__':
+    print("Bot is running!")
 
-while True:
-    message = input("input: ")
-    ints = predict_class(message)
-    res = get_response(ints, intents)
-    print(res)
+    while True:
+        message = input("input: ")
+        ints = predict_class(message)
+        res = get_response(ints, intents)
+        print(res)
