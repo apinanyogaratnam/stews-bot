@@ -115,5 +115,5 @@ async def on_message(message):
     # if message.content.startswith("$spam"):
 keep_alive()
 
-my_secret = os.environ['TOKEN']
+my_secret = os.environ.get['TOKEN']
 client.run(my_secret)

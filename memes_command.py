@@ -1,12 +1,16 @@
 from imports import praw, os, time
 from constants import MEME_SUBREDDITS
+from dotenv import load_dotenv
+
+# loading env variables
+load_dotenv()
 
 
 def createReddit():
-   return praw.Reddit(client_id = os.environ['REDDIT_CLIENT_ID'],
-                      client_secret = os.environ['REDDIT_CLIENT_SECRET'],
-                      username = os.environ['REDDIT_USERNAME'],
-                      password = os.environ['REDDIT_PASSWORD'],
+   return praw.Reddit(client_id = os.environ.get['REDDIT_CLIENT_ID'],
+                      client_secret = os.environ.get['REDDIT_CLIENT_SECRET'],
+                      username = os.environ.get['REDDIT_USERNAME'],
+                      password = os.environ.get['REDDIT_PASSWORD'],
                       user_agent = "stews_bot")
 
 
