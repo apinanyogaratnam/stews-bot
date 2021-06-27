@@ -63,6 +63,7 @@ async def on_message(message):
     if msg.startswith('pls shirt'):
         await message.channel.send("ilya shirt coming soon)")
     
+    # add (active message monitoring) into a new file and call function as active_monitoring(msg)
     custom_emojis = re.findall(r'<:\w*:\d*>', msg)
     for emoji in custom_emojis:
         try:
