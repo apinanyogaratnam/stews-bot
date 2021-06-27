@@ -4,6 +4,10 @@ from imports import (discord, os, random, threading,
                      NUMBER_OF_POSTS, ENCOURAGING_WORDS, 
                      THIRTY_MINUTES, HELP_MESSAGE, get_quote)
 from chatbot import predict_class, get_response, intents
+from dotenv import load_dotenv
+
+# load env variables
+load_dotenv()
 
 # fetching and appending reddit posts
 all_subreddits = []
