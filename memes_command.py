@@ -6,11 +6,11 @@ from dotenv import load_dotenv
 load_dotenv()
 
 
-def createReddit():
-   return praw.Reddit(client_id = os.environ.get['REDDIT_CLIENT_ID'],
-                      client_secret = os.environ.get['REDDIT_CLIENT_SECRET'],
-                      username = os.environ.get['REDDIT_USERNAME'],
-                      password = os.environ.get['REDDIT_PASSWORD'],
+def create_reddit():
+   return praw.Reddit(client_id = os.environ['REDDIT_CLIENT_ID'],
+                      client_secret = os.environ['REDDIT_CLIENT_SECRET'],
+                      username = os.environ['REDDIT_USERNAME'],
+                      password = os.environ['REDDIT_PASSWORD'],
                       user_agent = "stews_bot")
 
 
@@ -30,4 +30,4 @@ def fetch_reddit_posts(delay, NUMBER_OF_POSTS, all_subreddits):
         time.sleep(delay)
 
 
-reddit = createReddit()
+reddit = create_reddit()
