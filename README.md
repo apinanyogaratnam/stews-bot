@@ -30,9 +30,3 @@ Displays a list of commands the bot is capable of reading
 # TO-DO 
 - Use db and store information
 - react to message of sad words (sadge, itsokitsok, pensive) <- randomly
-- incorporate chatbotmodels to bot (make sure it does not react to every single message)
-
-
-
-
-- to update chatbotmodel.h5, need to run training.py on a local maching (push updated to repo, pull updated in repl.it)
