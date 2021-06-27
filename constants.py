@@ -6,6 +6,7 @@ Here are the different commands available:
       $hello (says hello) 
       $inspire (says an inspirational message)
       $meme (gives a meme from reddit subreddit memes, discresion is advised)
+      $ml SOME_MSG_HERE (uses natural language processing and gives a message based on the context of the message)
 Here are the different keywords:
       kms, down bad, depressed, sad (gives a positive message)
 """

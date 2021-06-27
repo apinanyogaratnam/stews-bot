@@ -33,7 +33,7 @@ Displays a list of commands the bot is capable of reading
 # TO-DO 
 - Use db and store information
 - react to message of sad words (sadge, itsokitsok, pensive) <- randomly (not always)
-- make mlchatbot with user personal playground (using if statements to check user and global var for currently_in_ml_playground = False and users_playground = None)
+- make mlchatbot with user personal playground (using if statements to check user and global var for currently_in_ml_playground = False and users_playground = None) (https://www.youtube.com/watch?v=0fWdU8JCT6Y, timestamp: 8:00 explains a solution)
 
 
 
