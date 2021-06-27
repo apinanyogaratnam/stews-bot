@@ -5,7 +5,7 @@ from imports import (discord, os, random, threading,
                      THIRTY_MINUTES, HELP_MESSAGE, get_quote)
 
 # bool variable for checking in ml playground
-currently_ml_playground = False
+currently_in_ml_playground = False
 
 # fetching and appending reddit posts
 all_subreddits = []
@@ -79,6 +79,15 @@ async def on_message(message):
 
     if "\U0001F614" in message.content:
         await message.add_reaction(emoji="\U0001F614")
+
+    if msg.lower() == "ml playground start bot":
+        currently_in_ml_playground = True
+    elif msg.lower() == "ml playground kill bot":
+        currently_in_ml_playground = False
+
+    if (currently_in_ml_playground):
+        # run chatbot here
+        pass
 
     # if message.content.startswith('LMFADODOASDOA'):
     #     # await message.channel.send('Clearing messages...')
