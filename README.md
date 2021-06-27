@@ -29,4 +29,4 @@ Displays a list of commands the bot is capable of reading
 
 # TO-DO 
 - Use db and store information
-- react to message of sad words (sadge, itsokitsok, pensive) <- randomly
+- react to message of sad words (sadge, itsokitsok, pensive) <- randomly (not always)
