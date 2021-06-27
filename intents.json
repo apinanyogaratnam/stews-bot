@@ -2,9 +2,11 @@
     {"tag": "greetings",
     "patterns": ["hello", "hey", "hi", "good day", "Greetings", "what's up?", "how is it going?", "hii", "helloooded", "helloooo"],
     "responses": ["Hello!", "Hey!", "What can I do for you?", "Hi there", "Hiiiiiii", "Helllooooosss"]},
+    
     {"tag": "goodbye",
     "patterns": ["cya", "See you later", "Goodbye", "I am Leaving", "Have a Good day", "bye", "cao", "see ya"],
     "responses": ["Sad to see you go :(", "Talk to you later", "Goodbye!"]},
+    
     {"tag": "sad_words",
     "patterns": ["sad", "kms", "sadness", "unhappy", "grief", "down bad", "depressed"],
     "responses": ["aw man hope you feel better >.<", "It's ok everything will get better", "Whatever you're going through, you got this!"]}
