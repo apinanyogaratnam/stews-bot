@@ -1,11 +1,11 @@
 from imports import (discord, os, random, threading, 
-                     time, requests, json, keep_alive,
-                     contains_sad_words, contains_emoji, 
-                     re, fetch_reddit_posts, NUMBER_OF_POSTS,
-                     ENCOURAGING_WORDS, THIRTY_MINUTES, 
-                     HELP_MESSAGE)
-from quotes_inventory import get_quotes
+                     time, keep_alive, contains_sad_words, 
+                     contains_emoji, re, fetch_reddit_posts, 
+                     NUMBER_OF_POSTS, ENCOURAGING_WORDS, 
+                     THIRTY_MINUTES, HELP_MESSAGE, get_quote)
 
+# bool variable for checking in ml playground
+currently_ml_playground = False
 
 # fetching and appending reddit posts
 all_subreddits = []
@@ -14,22 +14,6 @@ threading.Thread(target=fetch_reddit_posts, args=(THIRTY_MINUTES,NUMBER_OF_POSTS
 # fetch_reddit_posts(0, NUMBER_OF_POSTS, all_subreddits)
 
 client = discord.Client()
-
-# put this in inspire command file
-def get_quote():
-  response = requests.get("https://zenquotes.io/api/random")
-  json_data = json.loads(response.text)
-  quote = json_data[0]['q'] + " -" + json_data[0]['a']
-
-  print(quote)
-  if (("Obtain an auth key for unlimited") in quote):
-      quote = random.choice(get_quotes())
-      print("random choice below \/")
-      print(quote)
-      
-      return quote
-
-  return quote
 
 
 @client.event
