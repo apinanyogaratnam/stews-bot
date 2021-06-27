@@ -79,6 +79,7 @@ async def on_message(message):
     if "\U0001F614" in message.content:
         await message.add_reaction(emoji="\U0001F614")
 
+    # chatbot ml command
     if msg.startswith("$ml "):
         message = msg[4:]
         # chatbot runs here
