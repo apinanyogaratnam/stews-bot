@@ -85,9 +85,9 @@ async def on_message(message):
 
     # chatbot ml command
     if msg.startswith("$ml "):
-        message = msg[4:]
+        message_text = msg[4:]
         # chatbot runs here
-        ints = predict_class(message)
+        ints = predict_class(message_text)
         output = get_response(ints, intents)
         await message.channel.send(output)
 
