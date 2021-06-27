@@ -4,9 +4,10 @@ app = Flask("")
 
 @app.route('/')
 def home():
-  link = "https://discord.com/api/oauth2/authorize?client_id=841145872314400778&permissions=2148001856&scope=bot"
-  web_message = "Hello. I am alive!\n" + "To add bot to server, visit link: " + link
-  return web_message
+    link = "https://discord.com/api/oauth2/authorize?client_id=841145872314400778&permissions=2148001856&scope=bot"
+    web_message = "Hello. I am alive!\n" + "To add bot to server, visit link: " + link
+
+    return web_message
 
 
 def run():
@@ -16,3 +17,4 @@ def run():
 def keep_alive():
   t = Thread(target=run)
   t.start()
+  
