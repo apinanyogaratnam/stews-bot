@@ -29,6 +29,7 @@ async def on_member_join(member, message):
     #     f'Hi {member.name}, welcome to my Discord server!'
     # )
 
+
 @client.event
 async def on_message(message):
     if message.author == client.user:
