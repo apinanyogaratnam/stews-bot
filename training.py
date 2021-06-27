@@ -39,7 +39,7 @@ words = sorted(set(words)) # eliminates duplicates
 classes = sorted(set(classes))
 
 pickle.dump(words, open('words.pkl', 'wb'))
-pickle.dump(words, open('classes.pkl', 'wb'))
+pickle.dump(classes, open('classes.pkl', 'wb'))
 
 training = []
 output_empty = [0] * len(classes)
@@ -73,6 +73,6 @@ model.add(Dense(len(train_y[0]), activation='softmax'))
 sgd = SGD(learning_rate=0.01, decay=1e-6, momentum=0.9, nesterov=True)
 model.compile(loss='categorical_crossentropy', optimizer = sgd, metrics=['accuracy'])
 
-model.fit(np.asarray(train_x).astype(np.int), np.asarray(train_y).astype(np.int), epochs=200, batch_size=5, verbose=1)
-model.save('chatbot_model.model')
+hist = model.fit(np.asarray(train_x).astype(np.int), np.asarray(train_y).astype(np.int), epochs=200, batch_size=5, verbose=1)
+model.save('chatbotmodel.h5', hist)
 print("Done")
