@@ -91,7 +91,7 @@ async def on_message(message):
         output = get_response(ints, intents)
         await message.channel.send(output)
 
-
+    # if possible, loop through all channels in server to delete user (add as seperate command)
     if (message.content == '$rm all'):
         # async for msg in message.author.logs_from(message.channel):
         #       await message.delete()
