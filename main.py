@@ -12,7 +12,6 @@ threading.Thread(target=fetch_reddit_posts, args=(THIRTY_MINUTES,NUMBER_OF_POSTS
 
 client = discord.Client()
 
-
 @client.event
 async def on_ready():
   print('We have logged in as {0.user}'
