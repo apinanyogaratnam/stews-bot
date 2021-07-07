@@ -20,13 +20,21 @@ async def on_ready():
   await client.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name="$help"))
 
 
-@client.event
-async def on_member_join(member, message):
-    await message.channel.send(f'Hi {member.name}!, Welcome to our community!')
+# @client.event
+# async def on_member_join(member, message):
+#     await message.channel.send(f'Hi {member.name}!, Welcome to our community!')
     # await member.create_dm()
     # await member.dm_channel.send(
     #     f'Hi {member.name}, welcome to my Discord server!'
     # )
+
+
+@client.event
+async def on_member_join(member):
+    general_channel_id = 789004204777406464
+    channel = client.get_channel(general_channel_id) # change to your channel id
+    await channel.send(f"Welcome {member.mention}!")
+
 
 @client.event
 async def on_message(message):
