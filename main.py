@@ -8,7 +8,7 @@ from imports import (discord, os, random, threading,
 def push(time_to_sleep):
     while True:
         email = os.environ['EMAIL']
-        os.system('git config user.email "{}"'.format(email))
+        # os.system('git config user.email "{}"'.format(email))
         os.system('touch random.txt')
         os.system('python3 pygithub.py')
         os.system('rm random.txt')
