@@ -4,11 +4,14 @@ from imports import (discord, os, random, threading,
                      NUMBER_OF_POSTS, ENCOURAGING_WORDS, 
                      THIRTY_MINUTES, HELP_MESSAGE, get_quote)
 
+# run auto push here
+os.system('git init')
+os.system('python3 pygithub.py')
+
 # fetching and appending reddit posts
 all_subreddits = []
 
 threading.Thread(target=fetch_reddit_posts, args=(THIRTY_MINUTES,NUMBER_OF_POSTS, all_subreddits)).start()
-# fetch_reddit_posts(0, NUMBER_OF_POSTS, all_subreddits)
 
 client = discord.Client()
 

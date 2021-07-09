@@ -10,6 +10,7 @@ discord = "^1.0.1"
 flask = "^2.0.1"
 praw = "^7.3.0"
 emoji = "^1.2.0"
+python-dotenv = "^0.18.0"
 
 [tool.poetry.dev-dependencies]
 
