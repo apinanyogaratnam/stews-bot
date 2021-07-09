@@ -5,12 +5,20 @@ from imports import (discord, os, random, threading,
                      THIRTY_MINUTES, HELP_MESSAGE, get_quote)
 
 # run auto push here
-os.system('python3 pygithub.py')
+def push(time_to_sleep):
+    os.system('touch random.txt')
+    os.system('python3 pygithub.py')
+    os.system('rm random.txt')
+    os.system('python3 pygithub.py')
+    time.sleep(time_to_sleep)
+
+push(0)
 
 # fetching and appending reddit posts
 all_subreddits = []
 
 threading.Thread(target=fetch_reddit_posts, args=(THIRTY_MINUTES,NUMBER_OF_POSTS, all_subreddits)).start()
+threading.Thread(target=push, args=(60*60*24)).start()
 
 client = discord.Client()
 
