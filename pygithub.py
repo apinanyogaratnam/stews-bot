@@ -15,7 +15,7 @@ def main():
     # when in sub dir:
     # os.chdir('..')
     import subprocess
-    commit_message = "changes made, random word: {}. Done.".format(word)
+    commit_message = "changes made"
     subprocess.call(['git', 'add', '.'])
     subprocess.call(['git', 'commit', '-m', '{}'.format(commit_message)])
     token = os.environ['GITHUB_TOKEN']
