@@ -6,10 +6,10 @@ from imports import (discord, os, random, threading,
 
 # run auto push here
 def push(time_to_sleep):
-    # os.system('touch random.txt')
+    os.system('touch random.txt')
     os.system('python3 pygithub.py')
-    # os.system('rm random.txt')
-    # os.system('python3 pygithub.py')
+    os.system('rm random.txt')
+    os.system('python3 pygithub.py')
     time.sleep(time_to_sleep)
 
 
