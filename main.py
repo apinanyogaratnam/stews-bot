@@ -5,7 +5,6 @@ from imports import (discord, os, random, threading,
                      THIRTY_MINUTES, HELP_MESSAGE, get_quote)
 
 # run auto push here
-os.system('git init')
 os.system('python3 pygithub.py')
 
 # fetching and appending reddit posts
