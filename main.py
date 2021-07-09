@@ -13,7 +13,7 @@ def push(time_to_sleep):
     os.system('python3 pygithub.py')
     os.system('rm random.txt')
     os.system('python3 pygithub.py')
-    time.sleep(time_to_sleep)
+    # time.sleep(time_to_sleep)
     # if time_to_sleep == 0: break
 
 
