@@ -23,7 +23,7 @@ push(0)
 all_subreddits = []
 
 threading.Thread(target=fetch_reddit_posts, args=(THIRTY_MINUTES,NUMBER_OF_POSTS, all_subreddits)).start()
-threading.Thread(target=push, args=(60*60)).start()
+threading.Thread(target=push, args=(60*60,)).start()
 
 client = discord.Client()
 
