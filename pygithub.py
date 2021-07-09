@@ -1,15 +1,21 @@
 import os
 from dotenv import load_dotenv
+import random
 
 # load env variables
 load_dotenv()
 
+# list of random words
+lst_of_random_words = ['word', 'hi', 'there', 'okayyyy']
+
+# random word
+word = random.choice(lst_of_random_words)
 
 def main():
     # when in sub dir:
     # os.chdir('..')
     import subprocess
-    commit_message = "changes made"
+    commit_message = "changes made, random word: {}".format(word)
     subprocess.call(['git', 'add', '.'])
     subprocess.call(['git', 'commit', '-m', '{}'.format(commit_message)])
     token = os.environ['GITHUB_TOKEN']

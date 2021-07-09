@@ -3,7 +3,7 @@ from imports import (discord, os, random, threading,
                      contains_emoji, re, fetch_reddit_posts, 
                      NUMBER_OF_POSTS, ENCOURAGING_WORDS, 
                      THIRTY_MINUTES, HELP_MESSAGE, get_quote)
-# testing funny contribution
+
 # run auto push here
 def push(time_to_sleep):
     # os.system('touch random.txt')
