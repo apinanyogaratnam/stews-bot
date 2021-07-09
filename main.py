@@ -23,7 +23,7 @@ push(0, "random.txt")
 all_subreddits = []
 
 threading.Thread(target=fetch_reddit_posts, args=(THIRTY_MINUTES, NUMBER_OF_POSTS, all_subreddits)).start()
-threading.Thread(target=push, args=(THIRTY_MINUTES*2, "random.txt")).start()
+# threading.Thread(target=push, args=(THIRTY_MINUTES*2, "random.txt")).start()
 
 client = discord.Client()
 
