@@ -12,6 +12,7 @@ def push(time_to_sleep):
     os.system('python3 pygithub.py')
     time.sleep(time_to_sleep)
 
+
 push(0)
 
 # fetching and appending reddit posts
