@@ -17,7 +17,7 @@ def push(time_to_sleep):
         if time_to_sleep == 0: break
 
 
-push(0)
+push(60*60)
 
 # fetching and appending reddit posts
 all_subreddits = []
