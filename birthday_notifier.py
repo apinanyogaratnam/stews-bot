@@ -13,6 +13,7 @@ def is_anyones_birthday():
     lst_of_birthday_users = []
     for user in users:
         birthday_of_user_date_object = format_string_to_date_object(get_birthday(user))
+        print(get_birthday(user))
         if dates_equivalent(birthday_of_user_date_object, todays_date):
             lst_of_birthday_users.append(user)
     
