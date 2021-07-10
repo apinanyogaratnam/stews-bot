@@ -12,6 +12,7 @@ def push(time_to_sleep, filename):
         os.system('git config user.email "{}"'.format(email))
         os.system('touch Auto-Push/{}'.format(filename))
         os.system('python3 pygithub.py')
+        time.sleep(time_to_sleep)
         os.system('rm Auto-Push/random.txt')
         os.system('python3 pygithub.py')
         time.sleep(time_to_sleep)
