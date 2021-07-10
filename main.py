@@ -17,22 +17,23 @@ client = discord.Client()
 
 @client.event
 async def on_ready():
-    print('We have logged in as {0.user}'.format(client))
-    await client.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name="$help"))
+    while True:
+        print('We have logged in as {0.user}'.format(client))
+        await client.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name="$help"))
 
-    import datetime
-    now = datetime.datetime.now()
+        import datetime
+        now = datetime.datetime.now()
 
-    print("HEREEEEEE")
-    if not now.hour == (9 + 4): return
+        print("HEREEEEEE")
+        if not now.hour == (9 + 4): return
 
-    lst_of_users_today = is_anyones_birthday()
-    channel = client.get_channel(836106300596944896)
+        lst_of_users_today = is_anyones_birthday()
+        channel = client.get_channel(836106300596944896)
 
-    for cord_user_id in lst_of_users_today:
-        await channel.send("Hey Everyone, Let's wish <@" + cord_user_id + "> Happy Birthday!!!")
-    
-    time.sleep(THIRTY_MINUTES*2)
+        for cord_user_id in lst_of_users_today:
+            await channel.send("Hey Everyone, Let's wish <@" + cord_user_id + "> Happy Birthday!!!")
+        
+        time.sleep(100)
 
 import asyncio
 def between_callback():
