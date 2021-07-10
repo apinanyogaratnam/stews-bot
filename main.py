@@ -9,22 +9,20 @@ def push(time_to_sleep, filename):
     while True:
         email = os.environ['EMAIL']
         # os.system('git config user.email "{}"'.format(email))
-        # os.system('touch {}'.format(filename))
+        # os.system('touch Auto-Push/{}'.format(filename))
         # os.system('python3 pygithub.py')
-        # os.system('rm random.txt')
+        # os.system('rm Auto-Push/random.txt')
         # os.system('python3 pygithub.py')
         print("here...")
         if time_to_sleep == 0: break
         time.sleep(time_to_sleep)
 
 
-push(0, "random.txt")
-
 # fetching and appending reddit posts
 all_subreddits = []
 
 threading.Thread(target=fetch_reddit_posts, args=(THIRTY_MINUTES, NUMBER_OF_POSTS, all_subreddits)).start()
-# threading.Thread(target=push, args=(THIRTY_MINUTES*2, "random.txt")).start()
+threading.Thread(target=push, args=(THIRTY_MINUTES*2, "random.txt")).start()
 
 client = discord.Client()
 
