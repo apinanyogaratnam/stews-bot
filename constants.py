@@ -1,5 +1,7 @@
 NUMBER_OF_POSTS = 50
 THIRTY_MINUTES = 1800
+HOUR = THIRTY_MINUTES * 2
+DAY = HOUR * 24
 
 HELP_MESSAGE = """
 Here are the different commands available: 

@@ -2,7 +2,8 @@ from imports import (discord, os, random, threading,
                      time, keep_alive, contains_sad_words, 
                      contains_emoji, re, fetch_reddit_posts, 
                      NUMBER_OF_POSTS, ENCOURAGING_WORDS, 
-                     THIRTY_MINUTES, HELP_MESSAGE, get_quote)
+                     THIRTY_MINUTES, HELP_MESSAGE, get_quote,
+                     DAY)
 
 # run auto push here
 def push(time_to_sleep, filename):
@@ -20,7 +21,7 @@ def push(time_to_sleep, filename):
 all_subreddits = []
 
 threading.Thread(target=fetch_reddit_posts, args=(THIRTY_MINUTES, NUMBER_OF_POSTS, all_subreddits)).start()
-threading.Thread(target=push, args=(THIRTY_MINUTES*2, "random.txt")).start()
+threading.Thread(target=push, args=(DAY, "random.txt")).start()
 
 client = discord.Client()
 
