@@ -3,7 +3,7 @@ from replit import db
 
 
 def dates_equivalent(date1, date2):
-    return date1.day == date2.day and date1.month == date2.month
+    return int(date1.day) == int(date2.day) and int(date1.month) == int(date2.month)
 
 
 def is_anyones_birthday():
@@ -12,7 +12,7 @@ def is_anyones_birthday():
 
     lst_of_birthday_users = []
     for user in users:
-        if dates_equivalent(db[user], todays_date):
+        if dates_equivalent(get_birthday(user), todays_date):
             lst_of_birthday_users.append(user)
     
     return lst_of_birthday_users
@@ -69,7 +69,7 @@ def add_birthday(username, date_string): # username in discord, date_string
 
 
 def get_birthday(username):
-    return db[username]
+    return db[str(username)]
 
 
 def remove_birthday(username):

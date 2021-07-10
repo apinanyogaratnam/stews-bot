@@ -3,8 +3,15 @@ from imports import (discord, os, random, threading,
                      contains_emoji, re, fetch_reddit_posts, 
                      NUMBER_OF_POSTS, ENCOURAGING_WORDS, 
                      THIRTY_MINUTES, HELP_MESSAGE, get_quote,
-                     DAY)
-from AutoPush.push_to_github import push
+                     DAY, push)
+
+
+def notify_if_birthday():
+    from date_object import current_date
+    todays_date = current_date()
+    from birthday_notifier import is_anyones_birthday
+    print(is_anyones_birthday())
+
 
 # fetching and appending reddit posts
 all_subreddits = []

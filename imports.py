@@ -20,3 +20,4 @@ from memes_command import createReddit, reddit, fetch_reddit_posts
 from constants import (NUMBER_OF_POSTS, ENCOURAGING_WORDS, THIRTY_MINUTES,
                        MEME_SUBREDDITS, HELP_MESSAGE, DAY)
 from inspire_command import contains_sad_words, contains_emoji
+from AutoPush.push_to_github import push
