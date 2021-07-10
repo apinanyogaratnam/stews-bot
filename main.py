@@ -19,8 +19,7 @@ client = discord.Client()
 async def on_ready():
     print('We have logged in as {0.user}'.format(client))
     await client.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name="$help"))
-    from replit import db
-    del db['425697116242051073']
+
     import datetime
     now = datetime.datetime.now()
 
