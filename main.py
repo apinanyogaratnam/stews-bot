@@ -41,8 +41,9 @@ async def on_ready():
     
     time.sleep(THIRTY_MINUTES*2)
 
+import asyncio
+threading.Thread(target=asyncio.run, args=(on_ready(),)).start()
 
-threading.Thread(target=on_ready, args=()).start()
 # @client.event
 # async def on_member_join(member, message):
 #     await message.channel.send(f'Hi {member.name}!, Welcome to our community!')
