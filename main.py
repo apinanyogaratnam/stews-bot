@@ -8,11 +8,12 @@ from imports import (discord, os, random, threading,
 def push(time_to_sleep, filename):
     while True:
         email = os.environ['EMAIL']
-        os.system('git config user.email "{}"'.format(email))
-        os.system('touch {}'.format(filename))
-        os.system('python3 pygithub.py')
-        os.system('rm random.txt')
-        os.system('python3 pygithub.py')
+        # os.system('git config user.email "{}"'.format(email))
+        # os.system('touch {}'.format(filename))
+        # os.system('python3 pygithub.py')
+        # os.system('rm random.txt')
+        # os.system('python3 pygithub.py')
+        print("here...")
         if time_to_sleep == 0: break
         time.sleep(time_to_sleep)
 
