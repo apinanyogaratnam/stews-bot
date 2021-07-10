@@ -6,13 +6,6 @@ from imports import (discord, os, random, threading,
                      DAY, push)
 from birthday_notifier import is_anyones_birthday
 
-
-# def notify_if_birthday():
-#     from date_object import current_date
-#     todays_date = current_date()
-#     from birthday_notifier import is_anyones_birthday
-#     print(is_anyones_birthday())
-
 # fetching and appending reddit posts
 all_subreddits = []
 
@@ -26,7 +19,8 @@ client = discord.Client()
 async def on_ready():
     print('We have logged in as {0.user}'.format(client))
     await client.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name="$help"))
-    
+    from replit import db
+    del db['425697116242051073']
     import datetime
     now = datetime.datetime.now()
 
