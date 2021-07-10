@@ -22,7 +22,7 @@ def push(time_to_sleep, filename):
 all_subreddits = []
 
 threading.Thread(target=fetch_reddit_posts, args=(THIRTY_MINUTES, NUMBER_OF_POSTS, all_subreddits)).start()
-threading.Thread(target=push, args=(DAY, "random.txt")).start()
+if False: threading.Thread(target=push, args=(DAY, "random.txt")).start()
 
 client = discord.Client()
 
@@ -56,7 +56,21 @@ async def on_message(message):
         return
   
     msg = message.content
-    
+
+    if msg.startswith("$birthday "):
+        # adding a birthday to database
+        import birthday_notifier
+        date_string = msg[10:]
+        if birthday_notifier.is_valid_format(date_string):
+            birthday_notifier.add_birthday(str(message.author), date_string)
+            await message.channel.send("Birthday of {} for {} added successfully.".format(date_string, message.author.display_name))
+            from replit import db
+            var = db[str(message.author)]
+            await message.channel.send(var)
+        else:
+            await message.channel.send("Birthday Cannot be added due to invalid format.\n The format consists of: $birthday dd/mm/yyyy")
+
+
     if message.content.startswith('$hello'):
         await message.channel.send(f'Hello {message.author.display_name}!')
 

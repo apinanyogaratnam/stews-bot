@@ -1,5 +1,37 @@
-from date_object import date, current_date
+from date_object import date_obj, current_date
 from replit import db
+
+
+def dates_equivalent(date1, date2):
+    return date1.day == date2.day and date1.month == date2.month
+
+
+def is_anyones_birthday():
+    users = db.keys()
+    todays_date = current_date()
+
+    lst_of_birthday_users = []
+    for user in users:
+        if dates_equivalent(db[user], todays_date):
+            lst_of_birthday_users.append(user)
+    
+    return lst_of_birthday_users
+
+
+# needs a threading process (runs every hour)
+# def notify_birthdays():
+#     import datetime
+#     now = datetime.datetime.now()
+
+#     if not now.hour == 9: return 
+
+#     lst_of_birthday_users = is_anyones_birthday()
+#     lst_of_messages = []
+
+#     for user in lst_of_birthday_users:
+#         message = "Happy Birthday"
+
+#     return message
 
 
 def is_valid_format(possible_date_string):
@@ -24,14 +56,14 @@ def format_string_to_date_object(date_string):
     # (day)/(month)/(year)
     # assuming date_string is a valid date_string
     lst = date_string.split("/")
-    date_obj = date(lst[0], lst[1], lst[2])
-    
-    return date_obj
+    str_to_date_obj = date_obj(lst[0], lst[1], lst[2])
+
+    return str_to_date_obj
 
 
-def add_birthday(username, date): # username in discord, date object
+def add_birthday(username, date_string): # username in discord, date_string
     # if already exists, birthday gets replaced
-    db[username] = date
+    db[username] = date_string
 
 
 def get_birthday(username):

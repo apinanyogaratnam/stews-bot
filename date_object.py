@@ -1,4 +1,4 @@
-class date:
+class date_obj:
     def __init__(self, day, month, year):
         self.day = day
         self.month = month
@@ -12,10 +12,10 @@ def current_date():
     d1 = today.strftime("%d/%m/%Y") # 16/09/2019
     temp_lst = d1.split("/")
 
-    day = temp_lst[0]
-    month = temp_lst[1]
-    year = temp_lst[2]
+    day = int(temp_lst[0])
+    month = int(temp_lst[1])
+    year = int(temp_lst[2])
 
-    current_date_object = date(day, month, year)
+    current_date_object = date_obj(day, month, year)
 
     return current_date_object
