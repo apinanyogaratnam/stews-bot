@@ -12,7 +12,7 @@ def notify_if_birthday():
     from birthday_notifier import is_anyones_birthday
     print(is_anyones_birthday())
     print("HEREEEEEEE")
-
+notify_if_birthday()
 
 # fetching and appending reddit posts
 all_subreddits = []
