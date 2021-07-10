@@ -4,6 +4,7 @@ from replit import db
 
 def dates_equivalent(date1, date2):
     print(date1.day, date2.day)
+    print(date1.month, date2.month)
     return date1.day == date2.day and date1.month == date2.month
 
 
