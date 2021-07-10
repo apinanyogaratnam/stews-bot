@@ -42,7 +42,7 @@ async def on_ready():
     time.sleep(THIRTY_MINUTES*2)
 
 import asyncio
-def between_callback(args):
+def between_callback():
     loop = asyncio.new_event_loop()
     asyncio.set_event_loop(loop)
 

@@ -1,6 +1,8 @@
 import random, json, requests
 from quotes_inventory import get_quotes
-sad_words = ["kms", "down bad", "depressed", "sad"]
+from constants import SAD_WORDS
+
+sad_words = SAD_WORDS
 
 encouraging_words = [
   "aw man hope you feel better >.<",
