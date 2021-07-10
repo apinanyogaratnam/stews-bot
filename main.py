@@ -42,7 +42,14 @@ async def on_ready():
     time.sleep(THIRTY_MINUTES*2)
 
 import asyncio
-threading.Thread(target=asyncio.run, args=(on_ready(),)).start()
+def between_callback(args):
+    loop = asyncio.new_event_loop()
+    asyncio.set_event_loop(loop)
+
+    loop.run_until_complete(on_ready())
+    loop.close()
+
+threading.Thread(target=between_callback, args=()).start()
 
 # @client.event
 # async def on_member_join(member, message):
