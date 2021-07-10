@@ -37,11 +37,13 @@ async def on_ready():
 
 import asyncio
 def between_callback():
-    loop = asyncio.new_event_loop()
-    asyncio.set_event_loop(loop)
+    while True:
+        loop = asyncio.new_event_loop()
+        asyncio.set_event_loop(loop)
 
-    loop.run_until_complete(on_ready())
-    loop.close()
+        loop.run_until_complete(on_ready())
+        loop.close()
+        time.sleep(100)
 
 threading.Thread(target=between_callback, args=()).start()
 
