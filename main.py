@@ -11,6 +11,7 @@ def notify_if_birthday():
     todays_date = current_date()
     from birthday_notifier import is_anyones_birthday
     print(is_anyones_birthday())
+    print("HEREEEEEEE")
 
 
 # fetching and appending reddit posts
