@@ -65,6 +65,8 @@ def add_birthday(username, date_string): # username in discord, date_string
     # if already exists, birthday gets replaced
     db[username] = date_string
 
+    return "Birthday of {} for {} added successfully.".format(date_string, username.display_name)
+
 
 def get_birthday(username):
     return db[username]

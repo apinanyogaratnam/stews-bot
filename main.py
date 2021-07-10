@@ -4,25 +4,13 @@ from imports import (discord, os, random, threading,
                      NUMBER_OF_POSTS, ENCOURAGING_WORDS, 
                      THIRTY_MINUTES, HELP_MESSAGE, get_quote,
                      DAY)
-
-# run auto push here
-def push(time_to_sleep, filename):
-    while True:
-        email = os.environ['EMAIL']
-        os.system('git config user.email "{}"'.format(email))
-        os.system('touch Auto-Push/{}'.format(filename))
-        os.system('python3 pygithub.py')
-        time.sleep(time_to_sleep)
-        os.system('rm Auto-Push/random.txt')
-        os.system('python3 pygithub.py')
-        time.sleep(time_to_sleep)
-
+from AutoPush.push_to_github import push
 
 # fetching and appending reddit posts
 all_subreddits = []
 
 threading.Thread(target=fetch_reddit_posts, args=(THIRTY_MINUTES, NUMBER_OF_POSTS, all_subreddits)).start()
-if False: threading.Thread(target=push, args=(DAY, "random.txt")).start()
+if True: threading.Thread(target=push, args=(DAY, "random.txt")).start()
 
 client = discord.Client()
 
@@ -62,11 +50,11 @@ async def on_message(message):
         import birthday_notifier
         date_string = msg[10:]
         if birthday_notifier.is_valid_format(date_string):
-            birthday_notifier.add_birthday(message.author, date_string)
-            await message.channel.send("Birthday of {} for {} added successfully.".format(date_string, message.author.display_name))
-            from replit import db
-            var = db[str(message.author)] # needs str() casting to be called
-            await message.channel.send(var)
+            confirmation_message = birthday_notifier.add_birthday(message.author, date_string)
+            await message.channel.send(confirmation_message)
+            # from replit import db
+            # var = db[str(message.author)] # needs str() casting to be called
+            # await message.channel.send(var)
         else:
             await message.channel.send("Birthday Cannot be added due to invalid format.\n The format consists of: $birthday dd/mm/yyyy")
 
