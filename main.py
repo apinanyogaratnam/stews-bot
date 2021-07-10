@@ -4,14 +4,14 @@ from imports import (discord, os, random, threading,
                      NUMBER_OF_POSTS, ENCOURAGING_WORDS, 
                      THIRTY_MINUTES, HELP_MESSAGE, get_quote,
                      DAY, push)
+from birthday_notifier import is_anyones_birthday
 
 
-def notify_if_birthday():
-    from date_object import current_date
-    todays_date = current_date()
-    from birthday_notifier import is_anyones_birthday
-    print(is_anyones_birthday())
-notify_if_birthday()
+# def notify_if_birthday():
+#     from date_object import current_date
+#     todays_date = current_date()
+#     from birthday_notifier import is_anyones_birthday
+#     print(is_anyones_birthday())
 
 # fetching and appending reddit posts
 all_subreddits = []
@@ -24,11 +24,25 @@ client = discord.Client()
 
 @client.event
 async def on_ready():
-  print('We have logged in as {0.user}'
-  .format(client))
-  await client.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name="$help"))
+    print('We have logged in as {0.user}'.format(client))
+    await client.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name="$help"))
+    
+    import datetime
+    now = datetime.datetime.now()
+
+    print("HEREEEEEE")
+    if not now.hour == (9 + 4): return
+
+    lst_of_users_today = is_anyones_birthday()
+    channel = client.get_channel(836106300596944896)
+
+    for cord_user_id in lst_of_users_today:
+        await channel.send("Hey Everyone, Let's wish <@" + cord_user_id + "> Happy Birthday!!!")
+    
+    time.sleep(THIRTY_MINUTES*2)
 
 
+threading.Thread(target=on_ready, args=()).start()
 # @client.event
 # async def on_member_join(member, message):
 #     await message.channel.send(f'Hi {member.name}!, Welcome to our community!')
@@ -57,7 +71,7 @@ async def on_message(message):
         import birthday_notifier
         date_string = msg[10:]
         if birthday_notifier.is_valid_format(date_string):
-            confirmation_message = birthday_notifier.add_birthday(message.author, date_string)
+            confirmation_message = birthday_notifier.add_birthday(message.author.id, date_string)
             await message.channel.send(confirmation_message)
             # from replit import db
             # var = db[str(message.author)] # needs str() casting to be called

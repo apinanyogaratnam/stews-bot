@@ -3,9 +3,7 @@ from replit import db
 
 
 def dates_equivalent(date1, date2):
-    print(date1.day, date2.day)
-    print(date1.month, date2.month)
-    return date1.day == date2.day and date1.month == date2.month
+    return int(date1.day) == int(date2.day) and int(date1.month) == int(date2.month)
 
 
 def is_anyones_birthday():
@@ -15,7 +13,7 @@ def is_anyones_birthday():
     lst_of_birthday_users = []
     for user in users:
         birthday_of_user_date_object = format_string_to_date_object(get_birthday(user))
-        print(todays_date)
+
         if dates_equivalent(birthday_of_user_date_object, todays_date):
             lst_of_birthday_users.append(user)
     
@@ -65,19 +63,19 @@ def format_string_to_date_object(date_string):
     return str_to_date_obj
 
 
-def add_birthday(username, date_string): # username in discord, date_string
+def add_birthday(user_id, date_string): # username in discord, date_string
     # if already exists, birthday gets replaced
-    db[username] = date_string
+    db[user_id] = date_string
 
-    return "Birthday of {} for {} added successfully.".format(date_string, username.display_name)
-
-
-def get_birthday(username):
-    return db[str(username)]
+    return "Birthday of {} for <@{}> added successfully.".format(date_string, user_id)
 
 
-def remove_birthday(username):
-    del db[username]
+def get_birthday(user_id):
+    return db[str(user_id)]
+
+
+def remove_birthday(user_id):
+    del db[user_id]
 
 
 def print_all_users():
