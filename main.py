@@ -10,42 +10,36 @@ from birthday_notifier import is_anyones_birthday
 all_subreddits = []
 
 threading.Thread(target=fetch_reddit_posts, args=(THIRTY_MINUTES, NUMBER_OF_POSTS, all_subreddits)).start()
-if True: threading.Thread(target=push, args=(DAY, "random.txt")).start()
+threading.Thread(target=push, args=(DAY, "random.txt")).start()
 
 client = discord.Client()
 
 
 @client.event
 async def on_ready():
-    while True:
-        print('We have logged in as {0.user}'.format(client))
-        await client.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name="$help"))
+    print('We have logged in as {0.user}'.format(client))
+    await client.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name="$help"))
 
+
+async def check_for_birthdays(time_to_sleep):
+    while True:
         import datetime
         now = datetime.datetime.now()
 
-        print("HEREEEEEE")
-        if not now.hour == (9 + 4): return
+        if not now.hour == (9 + 4): 
+            time.sleep(time_to_sleep)
+            continue
 
         lst_of_users_today = is_anyones_birthday()
         channel = client.get_channel(836106300596944896)
 
         for cord_user_id in lst_of_users_today:
             await channel.send("Hey Everyone, Let's wish <@" + cord_user_id + "> Happy Birthday!!!")
-        
-        time.sleep(100)
+            
+        time.sleep(time_to_sleep)
 
 import asyncio
-def between_callback():
-    while True:
-        loop = asyncio.new_event_loop()
-        asyncio.set_event_loop(loop)
-
-        loop.run_until_complete(on_ready())
-        loop.close()
-        time.sleep(100)
-
-threading.Thread(target=between_callback, args=()).start()
+threading.Thread(target=asyncio.run, args=(check_for_birthdays(THIRTY_MINUTES*2),)).start()
 
 # @client.event
 # async def on_member_join(member, message):
@@ -54,7 +48,6 @@ threading.Thread(target=between_callback, args=()).start()
     # await member.dm_channel.send(
     #     f'Hi {member.name}, welcome to my Discord server!'
     # )
-
 
 @client.event
 async def on_member_join(member):
@@ -77,9 +70,7 @@ async def on_message(message):
         if birthday_notifier.is_valid_format(date_string):
             confirmation_message = birthday_notifier.add_birthday(message.author.id, date_string)
             await message.channel.send(confirmation_message)
-            # from replit import db
-            # var = db[str(message.author)] # needs str() casting to be called
-            # await message.channel.send(var)
+
         else:
             await message.channel.send("Birthday Cannot be added due to invalid format.\n The format consists of: $birthday dd/mm/yyyy")
 
