@@ -43,6 +43,11 @@ async def on_message(message):
 
     if msg.startswith("$q: "):
         parsed_message = msg[4:]
+
+        if (len(parsed_message) > 50): 
+            await message.channel.send("For security reasons, you can only enter a phrase with 50 characters or less.")
+            return
+            
         from OpenaiAPI.main_api import ask_a_question
         answer = ask_a_question(parsed_message)
         await message.channel.send("Answer: {}".format(answer))
@@ -53,6 +58,7 @@ async def on_message(message):
     if message.content.startswith('$inspire'):
         quote = get_quote()
         await message.channel.send(quote)
+
     if contains_sad_words(msg) and not contains_emoji(msg):
         await message.channel.send(random.choice(ENCOURAGING_WORDS))
     
