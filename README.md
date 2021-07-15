@@ -21,7 +21,11 @@ Memes receieved from reddit API (this is in NO way, shape or form of an applicat
 Uses tensorflow machine learning to build models, train data, and give user a response accordingly (natural language processing)
 
 ### $q: SOME_QUESTION_HERE
+uses the openai API to request a response using a prompt given by the user and sends that message \
+back to the server channel which the query was made (by the user)
 ![Image of Example calls and example responses](images/example_openai_calls.png)
+![Video of Example calls](images/example_calls_video.mov)
+
 ### $help
 Displays a list of commands the bot is capable of reading
 
