@@ -41,6 +41,12 @@ async def on_message(message):
   
     msg = message.content
 
+    if msg.startswith("$q: "):
+        parsed_message = msg[4:]
+        from openai.main_api import ask_a_question
+        answer = ask_a_question(parsed_message)
+        await message.channel.send("Answer: {}".format(answer))
+
     if message.content.startswith('$hello'):
         await message.channel.send(f'Hello {message.author.display_name}!')
 
