@@ -23,4 +23,5 @@ def ask_a_question(question):
     return answer
 
 
-print(ask_a_question("Who is the richest person in the world?"))
+if __name__ == '__main__':
+    print(ask_a_question("Who is the richest person in the world?"))

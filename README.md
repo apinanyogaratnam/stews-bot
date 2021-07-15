@@ -20,6 +20,8 @@ Memes receieved from reddit API (this is in NO way, shape or form of an applicat
 ### $ml SOME_MSG_HERE
 Uses tensorflow machine learning to build models, train data, and give user a response accordingly (natural language processing)
 
+### $q: SOME_QUESTION_HERE
+![Image of Example calls and example responses](images/example_openai_calls.png)
 ### $help
 Displays a list of commands the bot is capable of reading
 

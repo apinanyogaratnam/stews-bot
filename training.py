@@ -76,3 +76,5 @@ model.compile(loss='categorical_crossentropy', optimizer = sgd, metrics=['accura
 hist = model.fit(np.asarray(train_x).astype(np.int), np.asarray(train_y).astype(np.int), epochs=200, batch_size=5, verbose=1)
 model.save('ml_data/chatbotmodel.h5', hist)
 print("Done")
+
+# https://www.centervention.com/list-of-emotions-135-words-that-express-feelings/
