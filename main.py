@@ -63,7 +63,7 @@ async def on_message(message):
     msg = message.content
 
     # change to in
-    # if msg.lower().contains(" sadge "):
+    # if msg.lower() in " sadge ":
     #     await message.channel.send(":sadge:")
     
 
@@ -85,9 +85,10 @@ async def on_message(message):
     if message.content.startswith('$inspire'):
         quote = get_quote()
         await message.channel.send(quote)
+
     if contains_sad_words(msg) and not contains_emoji(msg):
         await message.channel.send(random.choice(ENCOURAGING_WORDS))
-    
+
     if msg.startswith('$help'):
         await message.channel.send(HELP_MESSAGE)
 
@@ -97,7 +98,7 @@ async def on_message(message):
         name = random_sub.title
         url = random_sub.url
         embed = discord.Embed(title = name)
-        
+
         embed.set_image(url = url)
         await message.channel.send(embed = embed)
 
@@ -117,6 +118,7 @@ async def on_message(message):
             await message.channel.send("who called me?")
             time.sleep(2)
             await message.channel.send(f'oh hey {message.author.display_name}!')
+            break
 
     if "\U0001F614" in message.content:
         await message.add_reaction(emoji="\U0001F614")
