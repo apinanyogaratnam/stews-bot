@@ -27,6 +27,5 @@ Displays a list of commands the bot is capable of reading
 - mentioning @Stews Bot will give a message
 - when a user joins the server, Stews will give a welcoming message
 
-# TO-DO 
-- Use db and store information
+TODO:
 - react to message of sad words (sadge, itsokitsok, pensive) <- randomly (not always)
