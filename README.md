@@ -44,4 +44,4 @@ Displays a list of commands the bot is capable of reading
 
 
 
-- to update chatbotmodel.h5, need to run training.py on a local maching (push updated to repo, pull updated in repl.it)
+- to update chatbotmodel.h5, need to run training.py on a local machine (push updated to repo, pull updated in repl.it)
