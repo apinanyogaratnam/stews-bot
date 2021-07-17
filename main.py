@@ -43,13 +43,6 @@ async def check_for_birthdays(time_to_sleep):
 import asyncio
 threading.Thread(target=asyncio.run, args=(check_for_birthdays(THIRTY_MINUTES*2),)).start()
 
-# @client.event
-# async def on_member_join(member, message):
-#     await message.channel.send(f'Hi {member.name}!, Welcome to our community!')
-    # await member.create_dm()
-    # await member.dm_channel.send(
-    #     f'Hi {member.name}, welcome to my Discord server!'
-    # )
 
 @client.event
 async def on_member_join(member):
@@ -67,6 +60,9 @@ async def on_message(message):
         return
   
     msg = message.content
+
+    if msg.lower().contains(" sadge "):
+        await message.channel.send(":sadge:")
 
     if msg.startswith("$birthday "):
         # adding a birthday to database
