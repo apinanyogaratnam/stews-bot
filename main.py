@@ -5,6 +5,7 @@ from imports import (discord, os, random, threading,
                      THIRTY_MINUTES, HELP_MESSAGE, get_quote,
                      DAY, push)
 from birthday_notifier import is_anyones_birthday
+from MessageTriggerCommands.triggers import list_of_triggers, list_of_trigger_functions
 
 # fetching and appending reddit posts
 all_subreddits = []
@@ -65,7 +66,11 @@ async def on_message(message):
     # change to in
     # if msg.lower() in " sadge ":
     #     await message.channel.send(":sadge:")
-    
+
+    # needs testing
+    # for i in range(len(list_of_triggers)):
+    #     if message.content.startswith(list_of_triggers[i]):
+    #         list_of_trigger_functions[i](message)
 
     if msg.startswith("$birthday "):
         # adding a birthday to database
