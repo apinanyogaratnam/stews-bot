@@ -12,7 +12,9 @@ all_subreddits = []
 threading.Thread(target=fetch_reddit_posts, args=(THIRTY_MINUTES, NUMBER_OF_POSTS, all_subreddits)).start()
 threading.Thread(target=push, args=(DAY, "random.txt")).start()
 
-client = discord.Client()
+intents = discord.Intents.default()
+intents.members = True
+client = discord.Client(intents=intents)
 
 
 @client.event
@@ -51,9 +53,12 @@ threading.Thread(target=asyncio.run, args=(check_for_birthdays(THIRTY_MINUTES*2)
 
 @client.event
 async def on_member_join(member):
+    server_id = 750477536353583205
     general_channel_id = 789004204777406464
-    channel = client.get_channel(general_channel_id) # change to your channel id
-    await channel.send(f"Welcome {member.mention}!")
+    guild = client.get_guild(server_id)
+    channel = guild.get_channel(general_channel_id)
+
+    await channel.send(f"Hey {member.mention}, Welcome to {guild.name}! :partying_face:")
 
 
 @client.event
