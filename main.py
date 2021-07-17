@@ -81,7 +81,7 @@ async def on_message(message):
 
 
     from MessageTriggerCommands.command_functions import commands
-    commands.hello_command(message)
+    await commands.hello_command(message)
     # if message.content.startswith('$hello'):
     #     await message.channel.send(f'Hello {message.author.display_name}!')
 
