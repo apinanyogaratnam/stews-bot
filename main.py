@@ -70,7 +70,8 @@ async def on_message(message):
     # needs testing
     for i in range(len(list_of_triggers)):
         if message.content.startswith(list_of_triggers[i]):
-            list_of_trigger_functions[i](message)
+            current_function = list_of_trigger_functions[i]
+            current_function(message)
 
     if msg.startswith("$birthday "):
         # adding a birthday to database
