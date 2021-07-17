@@ -5,7 +5,7 @@ from imports import (discord, os, random, threading,
                      THIRTY_MINUTES, HELP_MESSAGE, get_quote,
                      DAY, push)
 from birthday_notifier import is_anyones_birthday
-from MessageTriggerCommands.triggers import list_of_triggers, list_of_trigger_functions
+# from MessageTriggerCommands.triggers import list_of_triggers, list_of_trigger_functions
 
 # fetching and appending reddit posts
 all_subreddits = []
@@ -67,11 +67,6 @@ async def on_message(message):
     # if msg.lower() in " sadge ":
     #     await message.channel.send(":sadge:")
 
-    # needs testing
-    # for i in range(len(list_of_triggers)):
-    #     if message.content.startswith(list_of_triggers[i]):
-    #         current_function = list_of_trigger_functions[i]
-    #         current_function(message)
 
     if msg.startswith("$birthday "):
         # adding a birthday to database
@@ -85,8 +80,10 @@ async def on_message(message):
             await message.channel.send("Birthday Cannot be added due to invalid format.\n The format consists of: $birthday dd/mm/yyyy")
 
 
-    if message.content.startswith('$hello'):
-        await message.channel.send(f'Hello {message.author.display_name}!')
+    from MessageTriggerCommands.command_functions import commands
+    commands.hello_command(message)
+    # if message.content.startswith('$hello'):
+    #     await message.channel.send(f'Hello {message.author.display_name}!')
 
     if message.content.startswith('$inspire'):
         quote = get_quote()
