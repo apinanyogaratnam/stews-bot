@@ -32,5 +32,5 @@ class commands:
 
 
     async def shirt_command(message):
-        if message.command.startswith('pls shirt'):
+        if message.content.startswith('pls shirt'):
             await message.channel.send("ilya shirt coming soon)")

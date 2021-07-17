@@ -5,13 +5,14 @@ from imports import (discord, os, random, threading,
                      THIRTY_MINUTES, HELP_MESSAGE, get_quote,
                      DAY, push)
 from birthday_notifier import is_anyones_birthday
-# from MessageTriggerCommands.triggers import list_of_triggers, list_of_trigger_functions
+from MessageTriggerCommands.command_functions import commands
+commit_to_gh = True
 
 # fetching and appending reddit posts
 all_subreddits = []
 
 threading.Thread(target=fetch_reddit_posts, args=(THIRTY_MINUTES, NUMBER_OF_POSTS, all_subreddits)).start()
-threading.Thread(target=push, args=(DAY, "random.txt")).start()
+if commit_to_gh: threading.Thread(target=push, args=(DAY, "random.txt")).start()
 
 intents = discord.Intents.default()
 intents.members = True
@@ -80,33 +81,17 @@ async def on_message(message):
             await message.channel.send("Birthday Cannot be added due to invalid format.\n The format consists of: $birthday dd/mm/yyyy")
 
 
-    from MessageTriggerCommands.command_functions import commands
     await commands.hello_command(message)
-    # if message.content.startswith('$hello'):
-    #     await message.channel.send(f'Hello {message.author.display_name}!')
-
-    if message.content.startswith('$inspire'):
-        quote = get_quote()
-        await message.channel.send(quote)
+    await commands.inspire_command(message)
+    await commands.help_command(message)
+    await commands.meme_command(message, all_subreddits)
+    await commands.shirt_command(message)
 
     if contains_sad_words(msg) and not contains_emoji(msg):
         await message.channel.send(random.choice(ENCOURAGING_WORDS))
 
-    if msg.startswith('$help'):
-        await message.channel.send(HELP_MESSAGE)
-
-    if msg.startswith('$meme'):
-        random_sub = random.choice(all_subreddits)
-
-        name = random_sub.title
-        url = random_sub.url
-        embed = discord.Embed(title = name)
-
-        embed.set_image(url = url)
-        await message.channel.send(embed = embed)
-
-    if msg.startswith('pls shirt'):
-        await message.channel.send("ilya shirt coming soon)")
+    if msg.startswith('$q: '):
+        await message.channel.send("It's currently inactive. Ask stews (stewietheangel#6223) to turn on the command")
     
     # add (active message monitoring) into a new file and call function as active_monitoring(msg)
     custom_emojis = re.findall(r'<:\w*:\d*>', msg)
