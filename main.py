@@ -40,6 +40,7 @@ async def check_for_birthdays(time_to_sleep):
             
         time.sleep(time_to_sleep)
 
+
 import asyncio
 threading.Thread(target=asyncio.run, args=(check_for_birthdays(THIRTY_MINUTES*2),)).start()
 
