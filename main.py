@@ -68,10 +68,10 @@ async def on_message(message):
     #     await message.channel.send(":sadge:")
 
     # needs testing
-    for i in range(len(list_of_triggers)):
-        if message.content.startswith(list_of_triggers[i]):
-            current_function = list_of_trigger_functions[i]
-            current_function(message)
+    # for i in range(len(list_of_triggers)):
+    #     if message.content.startswith(list_of_triggers[i]):
+    #         current_function = list_of_trigger_functions[i]
+    #         current_function(message)
 
     if msg.startswith("$birthday "):
         # adding a birthday to database
@@ -85,31 +85,31 @@ async def on_message(message):
             await message.channel.send("Birthday Cannot be added due to invalid format.\n The format consists of: $birthday dd/mm/yyyy")
 
 
-    # if message.content.startswith('$hello'):
-    #     await message.channel.send(f'Hello {message.author.display_name}!')
+    if message.content.startswith('$hello'):
+        await message.channel.send(f'Hello {message.author.display_name}!')
 
-    # if message.content.startswith('$inspire'):
-    #     quote = get_quote()
-    #     await message.channel.send(quote)
+    if message.content.startswith('$inspire'):
+        quote = get_quote()
+        await message.channel.send(quote)
 
-    # if contains_sad_words(msg) and not contains_emoji(msg):
-    #     await message.channel.send(random.choice(ENCOURAGING_WORDS))
+    if contains_sad_words(msg) and not contains_emoji(msg):
+        await message.channel.send(random.choice(ENCOURAGING_WORDS))
 
-    # if msg.startswith('$help'):
-    #     await message.channel.send(HELP_MESSAGE)
+    if msg.startswith('$help'):
+        await message.channel.send(HELP_MESSAGE)
 
-    # if msg.startswith('$meme'):
-    #     random_sub = random.choice(all_subreddits)
+    if msg.startswith('$meme'):
+        random_sub = random.choice(all_subreddits)
 
-    #     name = random_sub.title
-    #     url = random_sub.url
-    #     embed = discord.Embed(title = name)
+        name = random_sub.title
+        url = random_sub.url
+        embed = discord.Embed(title = name)
 
-    #     embed.set_image(url = url)
-    #     await message.channel.send(embed = embed)
+        embed.set_image(url = url)
+        await message.channel.send(embed = embed)
 
-    # if msg.startswith('pls shirt'):
-    #     await message.channel.send("ilya shirt coming soon)")
+    if msg.startswith('pls shirt'):
+        await message.channel.send("ilya shirt coming soon)")
     
     # add (active message monitoring) into a new file and call function as active_monitoring(msg)
     custom_emojis = re.findall(r'<:\w*:\d*>', msg)
