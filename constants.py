@@ -9,6 +9,7 @@ Here are the different commands available:
       $inspire (says an inspirational message)
       $meme (gives a meme from reddit subreddit memes, discresion is advised)
       $birthday dd/mm/yyyy (allows you to add your birthday and be wished when the time comes)
+      $excuse (gives an excuse every programmer uses)
 Here are the different keywords:
       kms, down bad, depressed, sad (gives a positive message)
 """

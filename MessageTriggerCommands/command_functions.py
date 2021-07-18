@@ -40,5 +40,4 @@ class commands:
         if message.content.startswith('$excuse'):
             response = requests.get("http://pe-api.herokuapp.com/")
             json_data = json.loads(response.text)
-            print(json_data)
-            pass
+            await message.channel.send(json_data['message'])
