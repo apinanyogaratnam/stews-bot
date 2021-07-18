@@ -23,6 +23,9 @@ Displays a list of commands the bot is capable of reading
 ### $birthday dd/mm/yyyy
 Stores user's birthday into a database and wishes the user on the day of their inputted birthday
 
+### $excuse
+Gives an excuse every programmer uses pulled from http://pe-api.herokuapp.com/
+
 # Other
 - Reacts to custom emojis with the emojis used to the message (works on main server only)
 - when a sad word is detected, a positive message will appear
