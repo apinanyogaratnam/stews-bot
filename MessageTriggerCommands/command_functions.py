@@ -1,4 +1,4 @@
-from imports import (get_quote, HELP_MESSAGE, random, discord)
+from imports import (get_quote, HELP_MESSAGE, random, discord, json, requests)
 
 class commands:
     async def hello_command(message):
@@ -34,3 +34,11 @@ class commands:
     async def shirt_command(message):
         if message.content.startswith('pls shirt'):
             await message.channel.send("ilya shirt coming soon)")
+
+    
+    async def programming_excuses_command(message):
+        if message.content.startswith('$excuse'):
+            response = requests.get("http://pe-api.herokuapp.com/")
+            json_data = json.loads(response.text)
+            print(json_data)
+            pass

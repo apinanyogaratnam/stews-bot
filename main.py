@@ -86,6 +86,7 @@ async def on_message(message):
     await commands.help_command(message)
     await commands.meme_command(message, all_subreddits)
     await commands.shirt_command(message)
+    await commands.programming_excuses_command(message)
 
     if contains_sad_words(msg) and not contains_emoji(msg):
         await message.channel.send(random.choice(ENCOURAGING_WORDS))
