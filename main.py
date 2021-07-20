@@ -68,14 +68,16 @@ async def on_message(message):
     # if msg.lower() in " sadge ":
     #     await message.channel.send(":sadge:")
     if (message.content == ("api")):
-        voiceChannel = discord.utils.get(client.guild.voice_channels, name="vc-general")
-        voice = discord.utils.get(client.voice_clients, guild=client.guild)
+        server_id = 750477536353583205
+        guild = client.get_guild(server_id)
+        voiceChannel = discord.utils.get(guild.voice_channels, name="vc-general")
+        voice = discord.utils.get(client.voice_clients, guild=guild)
         if not voice.is_connected():
             await voiceChannel.connect()
 
 
-    if (str(message.author) == "vai9er#5526"):
-        await message.channel.send("-play grubhub delivery dance")
+    # if (str(message.author) == "vai9er#5526"):
+    #     await message.channel.send("-play grubhub delivery dance")
 
     if msg.startswith("$birthday "):
         # adding a birthday to database
