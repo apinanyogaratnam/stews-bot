@@ -68,6 +68,8 @@ async def on_message(message):
     # if msg.lower() in " sadge ":
     #     await message.channel.send(":sadge:")
     print(str(message.author) == "vai9er#5526")
+    if (message.content.startswith("1234")):
+        await message.channel.send("-play grubhub delivery dance")
 
     if msg.startswith("$birthday "):
         # adding a birthday to database
