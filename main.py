@@ -29,7 +29,7 @@ async def check_for_birthdays(time_to_sleep):
     while True:
         import datetime
         now = datetime.datetime.now()
-
+        print(now.hour)
         if not now.hour == (9 + 4): 
             time.sleep(time_to_sleep)
             continue
