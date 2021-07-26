@@ -36,12 +36,12 @@ async def check_for_birthdays(time_to_sleep):
         hour = int(string[:index]) + 1
         
         if hour != (9):
-            user=await client.get_user_info(425697116242051073)
+            user = await client.get_user(425697116242051073)
             await client.send_message(user, "checking birthdays, not 9am currently.")
             time.sleep(time_to_sleep)
             continue
 
-        user=await client.get_user_info(425697116242051073)
+        user=await client.get_user(425697116242051073)
         await client.send_message(user, "9am check successful.")
 
         lst_of_users_today = is_anyones_birthday()
