@@ -16,17 +16,21 @@ if commit_to_gh: threading.Thread(target=push, args=(DAY, "random.txt")).start()
 
 intents = discord.Intents.default()
 intents.members = True
+intents.reactions = True
+intents.guilds = True
 client = discord.Client(intents=intents)
 
 
 @client.event
 async def on_ready():
+    global channel
     print('We have logged in as {0.user}'.format(client))
     await client.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name="$help"))
 
 
 async def check_for_birthdays(time_to_sleep):
     while True:
+        print("here")
         from datetime import datetime
         from pytz import timezone
         tz = timezone('EST')
@@ -34,27 +38,29 @@ async def check_for_birthdays(time_to_sleep):
         string = str(obj).split()[1]
         index = string.index(":")
         hour = int(string[:index]) + 1
-        
-        if hour != (9):
-            user = await client.get_user(425697116242051073)
-            await client.send_message(user, "checking birthdays, not 9am currently.")
-            time.sleep(time_to_sleep)
-            continue
 
-        user=await client.get_user(425697116242051073)
-        await client.send_message(user, "9am check successful.")
+        # user = await client.fetch_user(425697116242051073)
+        
+        # if hour != (9):
+        #     # await channel.send("checking birthdays, not 9am currently.")
+        #     await asyncio.sleep(time_to_sleep)
+        #     continue
+
+        # await user.send("9am check successful.")
 
         lst_of_users_today = is_anyones_birthday()
-        channel = client.get_channel(836106300596944896)
+        server_id = 750477536353583205
+        guild = client.get_guild(server_id)
+        ogs_channel_id = 836106300596944896
+        channel = guild.get_channel(ogs_channel_id)
 
         for cord_user_id in lst_of_users_today:
             await channel.send("Hey Everyone, Let's wish <@" + cord_user_id + "> Happy Birthday!!!")
             
         time.sleep(time_to_sleep)
 
-
-import asyncio
-threading.Thread(target=asyncio.run, args=(check_for_birthdays(THIRTY_MINUTES*2),)).start()
+# import asyncio
+# threading.Thread(target=asyncio.run, args=(check_for_birthdays(THIRTY_MINUTES*2),)).start()
 
 
 @client.event
