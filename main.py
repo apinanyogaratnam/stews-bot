@@ -27,12 +27,22 @@ async def on_ready():
 
 async def check_for_birthdays(time_to_sleep):
     while True:
-        import datetime
-        now = datetime.datetime.now()
-        print("hour: " + str(now.hour))
-        if not now.hour == (9 + 4): 
+        from datetime import datetime
+        from pytz import timezone
+        tz = timezone('EST')
+        obj = datetime.now(tz)
+        string = str(obj).split()[1]
+        index = string.index(":")
+        hour = int(string[:index]) + 1
+        
+        if hour != (9):
+            user=await client.get_user_info(425697116242051073)
+            await client.send_message(user, "checking birthdays, not 9am currently.")
             time.sleep(time_to_sleep)
             continue
+
+        user=await client.get_user_info(425697116242051073)
+        await client.send_message(user, "9am check successful.")
 
         lst_of_users_today = is_anyones_birthday()
         channel = client.get_channel(836106300596944896)
