@@ -138,17 +138,17 @@ async def on_message(message):
     if "\U0001F614" in message.content:
         await message.add_reaction(emoji="\U0001F614")
 
-    # if message.content.startswith('LMFADODOASDOA'):
-    #     # await message.channel.send('Clearing messages...')
-    #     # async for msg in message.author.logs_from(message.channel):
-    #     #       await message.delete()
-    #     # await message.channel.send("Loading...")
-    #     messages = await message.channel.history(limit=None).flatten() # extremely slow with limit=None
-    #     print(len(messages))
-    #     for text_msg in messages:
-    #         if text_msg.author.name == message.author.name:
-    #             await text_msg.delete()
-    #     await message.channel.send("\U0001F44D")
+    if message.content.startswith('$delete all my messages in this channel'):
+        # await message.channel.send('Clearing messages...')
+        # async for msg in message.author.logs_from(message.channel):
+        #       await message.delete()
+        # await message.channel.send("Loading...")
+        messages = await message.channel.history(limit=None).flatten() # extremely slow with limit=None
+        print(len(messages))
+        for text_msg in messages:
+            if text_msg.author.name == message.author.name:
+                await text_msg.delete()
+        await message.channel.send("\U0001F44D")
 
     # make a delete bot history everywhere including removing reactions
     # if message.content.startswith("!clear stews bot"):
