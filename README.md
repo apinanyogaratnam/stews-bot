@@ -42,6 +42,10 @@ Displays a list of commands the bot is capable of reading
 - make mlchatbot with user personal playground (using if statements to check user and global var for currently_in_ml_playground = False and users_playground = None) (https://www.youtube.com/watch?v=0fWdU8JCT6Y, timestamp: 8:00 explains a solution)
 - learn how to run bot locally to test out ml stuff
 
-
+# Instructions
+Locally run bot
+1. clone project
+2. cd into project
+3. run `python3 main.py`
 
 - to update chatbotmodel.h5, need to run training.py on a local machine (push updated to repo, pull updated in repl.it)
